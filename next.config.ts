@@ -4,7 +4,11 @@ import type { NextConfig } from 'next';
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: process.cwd(),
+  },
   images: {
+    qualities: [75, 85],
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
     ],

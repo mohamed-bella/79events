@@ -5,7 +5,7 @@ const fallbackSiteUrl = process.env.NODE_ENV === 'production'
 export const company = {
   // Working project name; confirm the public brand before launch.
   name: process.env.NEXT_PUBLIC_COMPANY_NAME || '79 Events',
-  description: 'Corporate event planning, production and MICE support across Morocco.',
+  description: 'Organisation, production et coordination d’événements d’entreprise et de tourisme d’affaires au Maroc.',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteUrl,
   email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || '',
   phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || '',
@@ -14,8 +14,8 @@ export const company = {
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || '',
     instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',
   },
-  languages: ['en', 'fr'] as const,
-  locations: ['Marrakech', 'Casablanca', 'Rabat', 'Tangier', 'Agadir', 'Fes'],
+  languages: ['fr'] as const,
+  locations: ['Marrakech', 'Casablanca', 'Rabat', 'Tanger', 'Agadir', 'Fès'],
   verifiedStatistics: [] as {label: string; value: string}[],
   approvedTestimonials: [] as {quote: string; author: string; organization: string}[],
   approvedClientLogos: [] as {name: string; src: string}[],
@@ -24,3 +24,7 @@ export const company = {
 export function getSiteUrl() {
   return company.siteUrl.replace(/\/$/, '');
 }
+
+export const isPublicSiteConfigured = Boolean(
+  process.env.NEXT_PUBLIC_SITE_URL && !process.env.NEXT_PUBLIC_SITE_URL.includes('your-domain'),
+);
