@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {ArrowUpRight, Building2, ChevronRight, CircleHelp, Compass, FileText, MapPin} from 'lucide-react';
+import {ArrowUpRight, Check, CircleHelp} from 'lucide-react';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/routing';
 import {getPageByKey, pathFor, type Locale, type SitePage} from '@/content/registry';
@@ -11,89 +11,26 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
   const copy = page.copy[locale];
   const proposal = getPageByKey('request-a-proposal')!;
   const contact = getPageByKey('contact')!;
-  const isFormPage = page.kind === 'contact' || page.kind === 'proposal';
-  const heroActionHref = isFormPage ? '#proposal-form' : page.kind === 'legal' ? pathFor(contact, locale) : pathFor(proposal, locale);
-  const heroActionLabel = page.kind === 'contact' ? 'Écrire un message' : page.kind === 'legal' ? nav('contact') : nav('proposal');
-  const homeHref = '/';
-  const parentKey = page.path.split('/')[0];
-  const parent = getPageByKey(parentKey);
-  const related = page.related.map((key) => getPageByKey(key)).filter((item): item is SitePage => Boolean(item && item.published));
-  const steps = t.raw('steps') as {title: string; body: string}[];
-
-  return (
-    <main className="content-page">
-      <section className={`content-hero content-hero-${page.kind}`}>
-        <div className="container content-hero-inner">
-          <nav className="breadcrumbs" aria-label="Fil d’Ariane">
-            <Link href={homeHref}>{t('home')}</Link><span aria-hidden="true">/</span>
-            {parent && parent.key !== page.key && <><Link href={pathFor(parent, locale)}>{parent.copy[locale].title}</Link><span aria-hidden="true">/</span></>}
-            <span aria-current="page">{copy.title}</span>
-          </nav>
-          <div className="content-hero-grid">
-            <div className="content-hero-copy">
-              <p className="content-hero-eyebrow eyebrow"><Compass size={15} aria-hidden="true" />{copy.eyebrow}</p>
-              <h1>{copy.title}</h1>
-              <Link className="button button-blue" data-track-event={page.kind === 'venues' ? 'venue_inquiry_started' : 'service_cta_clicked'} href={heroActionHref}>{heroActionLabel}<ArrowUpRight size={16} aria-hidden="true" /></Link>
-            </div>
-            <div className="content-hero-visual">
-              <Image className="content-hero-image" src={page.image} alt={copy.imageAlt} fill priority sizes="(max-width: 720px) 100vw, 48vw" />
-              <span className="content-hero-icon" aria-hidden="true"><Building2 size={22} strokeWidth={1.6} /></span>
-              {page.kind === 'location' && <span className="location-stamp"><MapPin size={15} aria-hidden="true" />Maroc</span>}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <article className="document-shell container">
-        <header className="document-intro">
-          <p className="document-kicker"><FileText size={16} aria-hidden="true" />{copy.eyebrow}</p>
-          <p className="document-lead">{copy.intro}</p>
-        </header>
-
-        <section className="document-section">
-          <h2>{t('capabilities')}</h2>
-          <div className="document-entries">
-            {copy.offerings.map((offer, index) => <div className="document-entry" key={offer.title}><span className="document-entry-index">0{index + 1}</span><div><h3>{offer.title}</h3><p>{offer.body}</p></div><ChevronRight className="document-entry-chevron" size={21} aria-hidden="true" /></div>)}
-          </div>
-        </section>
-
-        {isFormPage ? (
-          <section className="document-section document-form-section" id="proposal-form">
-            <div className="document-section-heading"><p className="eyebrow">Quelques repères</p><h2>Votre projet, en quelques détails.</h2><p>{copy.note}</p></div>
-            <div className="form-panel"><ProposalForm kind={page.kind === 'contact' ? 'contact' : 'proposal'} /></div>
-          </section>
-        ) : (
-          <>
-            <section className="document-section">
-              <h2>{t('process')}</h2>
-              <div className="document-entries document-steps">
-                {steps.map((step, index) => <div className="document-entry" key={step.title}><span className="document-entry-index">0{index + 1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div><ChevronRight className="document-entry-chevron" size={21} aria-hidden="true" /></div>)}
-              </div>
-            </section>
-
-            <aside className="document-note">
-              <p className="eyebrow">{page.kind === 'location' ? t('local') : 'Périmètre du projet'}</p>
-              <p>{copy.note}</p>
-            </aside>
-
-            <section className="document-section document-questions">
-              <p className="eyebrow"><CircleHelp size={16} aria-hidden="true" />{t('faq')}</p>
-              <h2>{t('faq')}</h2>
-              <div className="document-entries">
-                {copy.faqs.map((item) => <div className="document-entry" key={item.question}><div><h3>{item.question}</h3><p>{item.answer}</p></div><ChevronRight className="document-entry-chevron" size={21} aria-hidden="true" /></div>)}
-              </div>
-            </section>
-          </>
-        )}
-
-        {related.length > 0 && page.kind !== 'legal' && <section className="document-section document-related"><p className="eyebrow">{t('related')}</p><h2>{t('related')}</h2><div className="document-related-links">{related.slice(0, page.key === 'locations' ? 4 : 3).map((item) => <Link key={item.key} href={pathFor(item, locale)}>{item.copy[locale].title}<ArrowUpRight size={16} aria-hidden="true" /></Link>)}</div></section>}
-
-        <footer className="document-next-step">
-          <p className="eyebrow">Prochaine étape</p>
-          <h2>{t('ctaTitle')}</h2>
-          <Link className="button button-orange" data-track-event={page.kind === 'venues' ? 'venue_inquiry_started' : 'service_cta_clicked'} href={pathFor(proposal, locale)}>{t('ctaButton')}<ArrowUpRight size={16} /></Link>
-        </footer>
-      </article>
-    </main>
-  );
+  const isForm = page.kind === 'contact' || page.kind === 'proposal';
+  const isLegal = page.kind === 'legal';
+  const heroHref = isForm ? '#proposal-form' : isLegal ? pathFor(contact, locale) : pathFor(proposal, locale);
+  const heroLabel = isForm ? nav('contact') : isLegal ? nav('contact') : nav('proposal');
+  const related = page.related.map(getPageByKey).filter((item): item is SitePage => Boolean(item?.published)).slice(0, 3);
+  const steps = t.raw('steps') as {title:string; body:string}[];
+  const sectionImage = page.kind === 'location' ? '/images/hero-terrasse-maroc.png' : '/images/preparation-evenement.png';
+  const heroImage = page.kind === 'service' || page.key === 'services' ? '/images/preparation-evenement.png' : page.kind === 'event' || page.key === 'events' ? '/images/conference-maroc.png' : page.image;
+  return <main className="landing-page inner-landing-page">
+    <section className="landing-hero inner-landing-hero" aria-labelledby="page-title"><div className="landing-hero-image" aria-hidden="true"><Image src={heroImage} alt="" fill priority sizes="100vw" /></div><div className="landing-hero-wash" /><div className="container landing-hero-inner"><p className="landing-eyebrow">{copy.eyebrow}</p><h1 id="page-title">{copy.title}</h1><p>{copy.description}</p><Link className="button button-orange" href={heroHref}>{heroLabel}<ArrowUpRight size={17} aria-hidden="true" /></Link></div></section>
+    <div className="landing-main container">
+      <section className="landing-feature"><div className="landing-feature-copy"><p className="eyebrow">{copy.eyebrow}</p><h2>{t('intro')}</h2><p>{copy.intro}</p></div><div className="landing-feature-photo"><Image src={sectionImage} alt={locale === 'fr' ? 'Préparation événementielle au Maroc' : 'Event planning in Morocco'} fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
+      <section className="landing-feature landing-feature-reverse"><div className="landing-feature-copy"><p className="eyebrow">{t('capabilities')}</p><h2>{t('capabilities')}</h2><div className="landing-points">{copy.offerings.map((offer) => <p key={offer.title}><Check size={18} aria-hidden="true" /><span><strong>{offer.title}</strong><small>{offer.body}</small></span></p>)}</div></div><div className="landing-feature-photo"><Image src={page.image} alt={copy.imageAlt} fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
+      {isForm ? <section className="landing-form" id="proposal-form"><div><p className="eyebrow">{nav('contact')}</p><h2>{locale === 'fr' ? 'Parlons de votre projet.' : 'Tell us about your event.'}</h2></div><div className="form-panel"><ProposalForm kind={page.kind === 'contact' ? 'contact' : 'proposal'} /></div></section> : <>
+        <section className="landing-feature"><div className="landing-feature-copy"><p className="eyebrow">{t('process')}</p><h2>{t('process')}</h2><div className="landing-points">{steps.map((step) => <p key={step.title}><Check size={18} aria-hidden="true" /><span><strong>{step.title}</strong><small>{step.body}</small></span></p>)}</div></div><div className="landing-feature-photo"><Image src="/images/conference-maroc.png" alt={locale === 'fr' ? 'Événement professionnel' : 'Business event'} fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
+        <section className="landing-feature landing-feature-reverse"><div className="landing-feature-copy"><p className="eyebrow"><CircleHelp size={16} aria-hidden="true" />{t('faq')}</p><h2>{t('faq')}</h2><div className="landing-points">{copy.faqs.map((item) => <p key={item.question}><Check size={18} aria-hidden="true" /><span><strong>{item.question}</strong><small>{item.answer}</small></span></p>)}</div></div><div className="landing-feature-photo"><Image src={sectionImage} alt="" fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
+        {isLegal && <p className="landing-legal-note">{copy.note}</p>}
+      </>}
+      {related.length > 0 && !isLegal && <section className="landing-related"><h2>{t('related')}</h2><div>{related.map((item) => <Link key={item.key} href={pathFor(item, locale)}>{item.copy[locale].eyebrow}<ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></section>}
+    </div>
+    {!isForm && !isLegal && <section className="landing-cta"><div className="container"><h2>{t('ctaTitle')}</h2><Link className="button button-orange" href={pathFor(proposal, locale)}>{t('ctaButton')}<ArrowUpRight size={17} aria-hidden="true" /></Link></div></section>}
+  </main>;
 }
