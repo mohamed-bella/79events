@@ -21,7 +21,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
   const steps = t.raw('steps') as {title: string; body: string}[];
 
   return (
-    <main>
+    <main className="content-page">
       <section className={`content-hero content-hero-${page.kind}`}>
         <div className="container content-hero-inner">
           <nav className="breadcrumbs" aria-label="Fil d’Ariane">
@@ -33,7 +33,6 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
             <div className="content-hero-copy">
               <p className="content-hero-eyebrow eyebrow"><Compass size={15} aria-hidden="true" />{copy.eyebrow}</p>
               <h1>{copy.title}</h1>
-              <p className="content-hero-lead">{copy.description}</p>
               <Link className="button button-blue" data-track-event={page.kind === 'venues' ? 'venue_inquiry_started' : 'service_cta_clicked'} href={heroActionHref}>{heroActionLabel}<ArrowUpRight size={16} aria-hidden="true" /></Link>
             </div>
             <div className="content-hero-visual">
@@ -52,8 +51,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
         </header>
 
         <section className="document-section">
-          <p className="eyebrow">{t('capabilities')}</p>
-          <h2>Ce que nous coordonnons.</h2>
+          <h2>{t('capabilities')}</h2>
           <div className="document-entries">
             {copy.offerings.map((offer, index) => <div className="document-entry" key={offer.title}><span className="document-entry-index">0{index + 1}</span><div><h3>{offer.title}</h3><p>{offer.body}</p></div><ChevronRight className="document-entry-chevron" size={21} aria-hidden="true" /></div>)}
           </div>
@@ -67,8 +65,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
         ) : (
           <>
             <section className="document-section">
-              <p className="eyebrow">{t('process')}</p>
-              <h2>Les étapes du projet.</h2>
+              <h2>{t('process')}</h2>
               <div className="document-entries document-steps">
                 {steps.map((step, index) => <div className="document-entry" key={step.title}><span className="document-entry-index">0{index + 1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div><ChevronRight className="document-entry-chevron" size={21} aria-hidden="true" /></div>)}
               </div>
@@ -81,7 +78,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
 
             <section className="document-section document-questions">
               <p className="eyebrow"><CircleHelp size={16} aria-hidden="true" />{t('faq')}</p>
-              <h2>À clarifier avant de commencer.</h2>
+              <h2>{t('faq')}</h2>
               <div className="document-entries">
                 {copy.faqs.map((item) => <div className="document-entry" key={item.question}><div><h3>{item.question}</h3><p>{item.answer}</p></div><ChevronRight className="document-entry-chevron" size={21} aria-hidden="true" /></div>)}
               </div>
@@ -89,12 +86,11 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
           </>
         )}
 
-        {related.length > 0 && page.kind !== 'legal' && <section className="document-section document-related"><p className="eyebrow">{t('related')}</p><h2>À lire ensuite.</h2><div className="document-related-links">{related.slice(0, page.key === 'locations' ? 6 : 4).map((item) => <Link key={item.key} href={pathFor(item, locale)}>{item.copy[locale].title}<ArrowUpRight size={16} aria-hidden="true" /></Link>)}</div></section>}
+        {related.length > 0 && page.kind !== 'legal' && <section className="document-section document-related"><p className="eyebrow">{t('related')}</p><h2>{t('related')}</h2><div className="document-related-links">{related.slice(0, page.key === 'locations' ? 4 : 3).map((item) => <Link key={item.key} href={pathFor(item, locale)}>{item.copy[locale].title}<ArrowUpRight size={16} aria-hidden="true" /></Link>)}</div></section>}
 
         <footer className="document-next-step">
           <p className="eyebrow">Prochaine étape</p>
           <h2>{t('ctaTitle')}</h2>
-          <p>{t('ctaText')}</p>
           <Link className="button button-orange" data-track-event={page.kind === 'venues' ? 'venue_inquiry_started' : 'service_cta_clicked'} href={pathFor(proposal, locale)}>{t('ctaButton')}<ArrowUpRight size={16} /></Link>
         </footer>
       </article>

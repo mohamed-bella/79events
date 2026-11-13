@@ -44,7 +44,6 @@ export async function SiteFooter({locale}: {locale: Locale}) {
         </div>
         <div className="footer-links-col footer-contact-col">
           <h2><MapPin size={15} aria-hidden="true" />{t('contact')}</h2>
-          <p className="footer-contact-note">Un interlocuteur pour préparer et coordonner votre événement au Maroc.</p>
           {company.email && <a data-track-event="email_clicked" href={`mailto:${company.email}`}><span>{t('email')}</span>{company.email}<ArrowUpRight size={14} /></a>}
           {company.phone && <a data-track-event="phone_clicked" href={`tel:${company.phone.replace(/\s+/g, '')}`}><span>{t('phone')}</span>{company.phone}<ArrowUpRight size={14} /></a>}
           {!company.email && !company.phone && <Link href={pathFor(pages.contact!, locale)}>{nav('contact')}<ArrowUpRight size={14} /></Link>}
