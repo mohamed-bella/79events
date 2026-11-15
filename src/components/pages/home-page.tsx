@@ -1,33 +1,41 @@
 import Image from 'next/image';
-import {ArrowUpRight, Check, MapPin, ShieldCheck} from 'lucide-react';
+import {ArrowRight, BriefcaseBusiness, Compass, Gem, Heart, Lightbulb, Sparkles} from 'lucide-react';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/routing';
 import {getPageByKey, pathFor, type Locale} from '@/content/registry';
 
 export async function HomePage({locale}: {locale: Locale}) {
   const t = await getTranslations({locale, namespace:'home'});
-  const pages = {events:getPageByKey('events')!, mice:getPageByKey('mice')!, services:getPageByKey('services')!, locations:getPageByKey('locations')!, about:getPageByKey('about')!, proposal:getPageByKey('request-a-proposal')!};
-  const cards = [
-    {page:pages.events, title:t('eventExpertiseTitle'), body:t('eventExpertiseBody'), image:'/images/conference-maroc.png'},
-    {page:pages.mice, title:t('miceExpertiseTitle'), body:t('miceExpertiseBody'), image:'/images/hero-terrasse-maroc.png'},
-    {page:pages.services, title:t('servicesExpertiseTitle'), body:t('servicesExpertiseBody'), image:'/images/preparation-evenement.png'},
+  const nav = await getTranslations({locale, namespace:'nav'});
+  const pages = {
+    proposal:getPageByKey('request-a-proposal')!, services:getPageByKey('services')!, about:getPageByKey('about')!,
+    portfolio:getPageByKey('portfolio')!, contact:getPageByKey('contact')!,
+  };
+  const categories = [
+    {key:'corporate-events', icon:BriefcaseBusiness, fr:'Événements d’entreprise', en:'Corporate events'},
+    {key:'mice', icon:Sparkles, fr:'Séminaires & incentives', en:'Seminars & incentives'},
+    {key:'product-launches', icon:Lightbulb, fr:'Lancements de produits', en:'Product launches'},
+    {key:'conferences', icon:Gem, fr:'Conférences', en:'Conferences'},
+    {key:'team-building', icon:Heart, fr:'Cohésion d’équipe', en:'Team building'},
+    {key:'event-planning', icon:Compass, fr:'Sur mesure', en:'Tailor made'},
   ];
-  const steps = t.raw('projectSteps') as string[];
-  const trust = t.raw('trustItems') as {title:string; body:string}[];
-  return <main className="landing-page">
-    <section className="landing-hero home-landing-hero" aria-labelledby="home-title">
-      <div className="landing-hero-image" aria-hidden="true"><Image src="/images/hero-terrasse-maroc.png" alt="" fill priority sizes="100vw" /></div>
-      <div className="landing-hero-wash" />
-      <div className="container landing-hero-inner"><p className="landing-eyebrow">{t('eyebrow')}</p><h1 id="home-title">{t('title')}</h1><p>{t('lead')}</p><Link className="button button-orange" href={pathFor(pages.proposal, locale)}>{t('primaryCta')}<ArrowUpRight size={17} aria-hidden="true" /></Link></div>
-      <div className="container landing-hero-facts" aria-label={t('projectsEyebrow')}>{steps.map((step, index) => <span key={step}><b>0{index + 1}</b>{step}</span>)}</div>
+  const gallery = [
+    {src:'/images/desert-event-hero.png', alt:locale === 'fr' ? 'Dîner dans le désert marocain' : 'Desert event dinner'},
+    {src:'/images/hero-terrasse-maroc.png', alt:locale === 'fr' ? 'Terrasse événementielle au Maroc' : 'Moroccan event terrace'},
+    {src:'/images/conference-maroc.png', alt:locale === 'fr' ? 'Conférence professionnelle' : 'Business conference'},
+    {src:'/images/preparation-evenement.png', alt:locale === 'fr' ? 'Préparation d’un événement' : 'Event preparation'},
+  ];
+  return <main className="editorial-home">
+    <section className="editorial-hero" aria-labelledby="home-title">
+      <Image src="/images/desert-event-hero.png" alt="" fill priority sizes="100vw" />
+      <div className="editorial-hero-overlay" />
+      <div className="container editorial-hero-content"><p className="editorial-kicker">79 EVENTS</p><h1 id="home-title">{t('title')}</h1><p>{t('lead')}</p><Link className="button editorial-button" href={pathFor(pages.services, locale)}>{t('secondaryCta')}<ArrowRight size={19} aria-hidden="true" /></Link></div>
     </section>
-    <section className="landing-main container" id="overview">
-      <div className="landing-section-heading"><p className="eyebrow">{t('expertiseEyebrow')}</p><h2>{t('expertiseTitle')}</h2><p>{t('expertiseBody')}</p></div>
-      <div className="landing-service-grid">{cards.map((card) => <Link className="landing-service-card" href={pathFor(card.page, locale)} key={card.page.key}><span className="landing-service-image"><Image src={card.image} alt="" fill sizes="(max-width: 700px) 100vw, 33vw" /></span><span className="landing-service-copy"><strong>{card.title}</strong><span>{card.body}</span><ArrowUpRight size={20} aria-hidden="true" /></span></Link>)}</div>
-      <section className="landing-feature"><div className="landing-feature-copy"><p className="eyebrow"><Check size={15} aria-hidden="true" />{t('proofLabel')}</p><h2>{t('proofTitle')}</h2><p>{t('proofBody')}</p><Link className="landing-text-link" href={pathFor(pages.services, locale)}>{t('secondaryCta')}<ArrowUpRight size={17} aria-hidden="true" /></Link></div><div className="landing-feature-photo"><Image src="/images/preparation-evenement.png" alt={locale === 'fr' ? 'Équipe préparant un événement' : 'Team preparing an event'} fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
-      <section className="landing-feature landing-feature-reverse"><div className="landing-feature-copy"><p className="eyebrow"><MapPin size={15} aria-hidden="true" />{t('destinationsEyebrow')}</p><h2>{t('destinationsTitle')}</h2><p>{t('destinationsBody')}</p><Link className="landing-text-link" href={pathFor(pages.locations, locale)}>{t('allDestinations')}<ArrowUpRight size={17} aria-hidden="true" /></Link></div><div className="landing-feature-photo"><Image src="/images/hero-terrasse-maroc.png" alt={t('imageAlt')} fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
-      <section className="landing-feature"><div className="landing-feature-copy"><p className="eyebrow"><ShieldCheck size={15} aria-hidden="true" />{t('trustEyebrow')}</p><h2>{t('trustTitle')}</h2><div className="landing-points">{trust.map((item) => <p key={item.title}><Check size={18} aria-hidden="true" /><span><strong>{item.title}</strong><small>{item.body}</small></span></p>)}</div><Link className="landing-text-link" href={pathFor(pages.about, locale)}>{t('discover')}<ArrowUpRight size={17} aria-hidden="true" /></Link></div><div className="landing-feature-photo"><Image src="/images/conference-maroc.png" alt={locale === 'fr' ? 'Conférence professionnelle' : 'Business conference'} fill sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
-    </section>
-    <section className="landing-cta"><div className="container"><h2>{t('ctaTitle')}</h2><Link className="button button-orange" href={pathFor(pages.proposal, locale)}>{t('ctaButton')}<ArrowUpRight size={17} aria-hidden="true" /></Link></div></section>
+    <nav className="editorial-categories" aria-label={nav('services')}><div className="container editorial-categories-grid">
+      {categories.map(({key, icon:Icon, fr, en}) => {const page = getPageByKey(key)!; return <Link key={key} href={pathFor(page, locale)}><Icon size={29} strokeWidth={1.35} aria-hidden="true" /><span>{locale === 'fr' ? fr : en}</span></Link>;})}
+    </div></nav>
+    <section className="editorial-work" aria-labelledby="work-title"><div className="container editorial-work-grid"><div className="editorial-work-copy"><p className="eyebrow">{locale === 'fr' ? 'Notre univers' : 'Our world'}</p><h2 id="work-title">{locale === 'fr' ? 'Des expériences à imaginer' : 'Experiences to imagine'}</h2><p>{locale === 'fr' ? 'Images d’ambiance : lieux, personnes et instants à créer.' : 'Concept imagery: places, people and moments to create.'}</p><Link className="editorial-outline-link" href={pathFor(pages.portfolio, locale)}>{locale === 'fr' ? 'Voir plus' : 'Explore'}<ArrowRight size={18} aria-hidden="true" /></Link></div><div className="editorial-gallery">{gallery.map((item) => <div className="editorial-gallery-image" key={item.src}><Image src={item.src} alt={item.alt} fill sizes="(max-width: 700px) 50vw, 19vw" /></div>)}</div></div></section>
+    <section className="editorial-about"><div className="editorial-about-visual"><Image src="/images/hero-terrasse-maroc.png" alt="" fill sizes="(max-width: 800px) 100vw, 45vw" /><div className="editorial-about-badge"><Image src="/images/79events-logo-terracotta.png" alt="79 Events" width={1280} height={1152} /></div></div><div className="editorial-about-copy"><p className="eyebrow">{nav('about')}</p><h2>{locale === 'fr' ? 'Une agence événementielle au cœur du Maroc' : 'An event agency rooted in Morocco'}</h2><p>{locale === 'fr' ? 'Créativité, organisation et savoir-faire local pour chaque projet.' : 'Creative thinking, careful planning and local knowledge for every project.'}</p><Link className="editorial-outline-link" href={pathFor(pages.about, locale)}>{locale === 'fr' ? 'En savoir plus' : 'About us'}<ArrowRight size={18} aria-hidden="true" /></Link></div><div className="editorial-about-words" aria-hidden="true">Créativité<br />Organisation<br />Excellence</div></section>
+    <section className="editorial-contact"><div className="container"><div><p className="editorial-kicker">79 EVENTS</p><h2>{locale === 'fr' ? 'Parlons de votre projet' : 'Let’s talk about your event'}</h2><p>{locale === 'fr' ? 'Une idée en tête ? Créons-la ensemble.' : 'Have an idea? Let’s make it happen.'}</p></div><Link className="editorial-outline-link" href={pathFor(pages.contact, locale)}>{nav('contact')}<ArrowRight size={18} aria-hidden="true" /></Link></div></section>
   </main>;
 }

@@ -68,7 +68,7 @@ export function SiteHeader() {
       <div className="header-inner container">
         <Link href="/" className="brand" aria-label="79 Events — accueil">
           <span className="brand-logo-window">
-            <Image className="brand-logo" src="/images/79events-logo.png" width={438} height={175} alt="" aria-hidden="true" priority />
+            <Image className="brand-logo" src="/images/79events-logo-terracotta.png" width={1280} height={1152} alt="" aria-hidden="true" priority />
           </span>
         </Link>
 

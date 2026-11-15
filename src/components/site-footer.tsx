@@ -22,7 +22,7 @@ export async function SiteFooter({locale}: {locale: Locale}) {
         <div className="footer-brand-col">
           <Link href="/" className="brand brand-inverse" aria-label={`${company.name} — accueil`}>
             <span className="brand-logo-window">
-              <Image className="brand-logo" src="/images/79events-logo.png" width={438} height={175} alt="" aria-hidden="true" />
+              <Image className="brand-logo" src="/images/79events-logo-terracotta.png" width={1280} height={1152} alt="" aria-hidden="true" />
             </span>
           </Link>
           <p className="footer-statement">{t('statement')}</p>

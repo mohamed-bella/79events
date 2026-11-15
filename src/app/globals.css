@@ -1098,3 +1098,82 @@ body:has(.landing-page) .site-footer .footer-project { display: none; }
   .landing-form { grid-template-columns: 1fr; gap: 20px; }
   .landing-cta { padding-block: 50px; }
 }
+
+/* 79 Events editorial home, inspired by the supplied brand reference. */
+.site-header { background: #f6eee6; }
+.header-inner { min-height: 92px; }
+.brand-logo-window { width: 110px; height: 82px; aspect-ratio: auto; overflow: visible; }
+.brand-logo { width: 100%; height: 100%; object-fit: contain; filter: none; }
+.footer-brand-col .brand-logo-window { width: 126px; height: 112px; }
+.brand-inverse .brand-logo { filter: brightness(0) invert(1); }
+.editorial-home { background: #f8f0e8; }
+.editorial-hero { position: relative; display: flex; min-height: clamp(510px, 43vw, 670px); align-items: center; isolation: isolate; overflow: hidden; color: white; background: #5c2b1d; }
+.editorial-hero > img { z-index: -2; object-fit: cover; object-position: center; }
+.editorial-hero-overlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgb(37 21 17 / 76%) 0%, rgb(37 21 17 / 44%) 42%, transparent 78%); }
+.editorial-hero-content { padding-block: 80px; }
+.editorial-kicker { margin: 0 0 16px; color: #f6dbca; font-size: 12px; font-weight: 700; letter-spacing: .21em; text-transform: uppercase; }
+.editorial-hero h1 { max-width: 720px; margin: 0 0 20px; color: white; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(3rem, 5.5vw, 6rem); font-weight: 400; line-height: 1.06; letter-spacing: -.04em; text-wrap: balance; }
+.editorial-hero-content > p:not(.editorial-kicker) { max-width: 440px; margin-bottom: 25px; color: #fff5ee; font-size: 16px; line-height: 1.65; }
+.editorial-button { min-width: 220px; justify-content: space-between; border-radius: 3px; background: #a64732 url('/images/terracotta-grain.svg') repeat; background-size: 180px; color: white; text-transform: uppercase; letter-spacing: .08em; }
+.editorial-categories { background: #f3e7dc; }
+.editorial-categories-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding-block: 26px; }
+.editorial-categories a { display: flex; min-height: 98px; align-items: center; justify-content: center; flex-direction: column; gap: 12px; padding: 8px 14px; border-right: 1px solid #dac9ba; text-align: center; }
+.editorial-categories a:last-child { border-right: 0; }
+.editorial-categories a:hover { color: var(--ocean); background: rgb(166 71 50 / 7%); }
+.editorial-categories svg { color: #9f4b39; }
+.editorial-categories span { max-width: 130px; font-size: 11px; font-weight: 700; letter-spacing: .07em; line-height: 1.4; text-transform: uppercase; }
+.editorial-work { padding-block: 55px; }
+.editorial-work-grid { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 2.3fr); align-items: center; gap: 38px; }
+.editorial-work-copy h2, .editorial-about-copy h2 { max-width: 420px; color: #793b2b; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(2rem, 3.3vw, 3.8rem); font-weight: 400; line-height: 1.08; }
+.editorial-work-copy > p:not(.eyebrow), .editorial-about-copy > p:not(.eyebrow) { max-width: 360px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.editorial-outline-link { display: inline-flex; min-height: 43px; align-items: center; justify-content: space-between; gap: 25px; padding: 9px 15px; border: 1px solid #9a6553; border-radius: 2px; color: #733d30; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.editorial-outline-link:hover { background: #9a4934; color: white; }
+.editorial-gallery { display: grid; grid-template-columns: 1.15fr 1fr .8fr 1fr; gap: 8px; }
+.editorial-gallery-image { position: relative; min-width: 0; height: clamp(220px, 22vw, 350px); overflow: hidden; }
+.editorial-gallery-image img { object-fit: cover; transition: transform .3s ease; }
+.editorial-gallery-image:hover img { transform: scale(1.04); }
+.editorial-about { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) minmax(160px, .4fr); align-items: stretch; overflow: hidden; background: #f9f1ea; }
+.editorial-about-visual { position: relative; min-height: 390px; overflow: hidden; }
+.editorial-about-visual > img { object-fit: cover; }
+.editorial-about-badge { position: absolute; inset: 0; display: grid; place-items: center; background: rgb(81 28 15 / 42%); }
+.editorial-about-badge img { width: 240px; max-width: 45%; height: auto; filter: brightness(0) invert(1); }
+.editorial-about-copy { align-self: center; padding: 52px clamp(28px, 5vw, 84px); }
+.editorial-about-words { display: flex; align-items: center; justify-content: center; padding: 30px; border-left: 1px solid #decfc3; color: #9e4b38; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(1.3rem, 2vw, 2.2rem); font-style: italic; line-height: 1.8; transform: rotate(-8deg); }
+.editorial-contact { padding-block: 35px; background: #8f3d2b url('/images/terracotta-grain.svg') repeat; background-size: 180px; color: white; }
+.editorial-contact .container { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.editorial-contact h2 { margin: 0 0 3px; color: white; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(1.6rem, 2.6vw, 2.6rem); font-weight: 400; }
+.editorial-contact p { margin: 0; color: #f4dcd0; font-size: 13px; }
+.editorial-contact .editorial-kicker { margin-bottom: 2px; font-size: 10px; }
+.editorial-contact .editorial-outline-link { flex: none; border-color: #f4dcd0; color: white; }
+body:has(.editorial-home) .site-footer .footer-project { display: none; }
+body:has(.editorial-home) .site-footer .footer-main { padding-block: 30px; }
+@media (max-width: 900px) {
+  .editorial-categories-grid { grid-template-columns: repeat(3, 1fr); }
+  .editorial-categories a:nth-child(3) { border-right: 0; }
+  .editorial-categories a:nth-child(n + 4) { border-top: 1px solid #dac9ba; }
+  .editorial-work-grid { grid-template-columns: 1fr; }
+  .editorial-gallery-image { height: 240px; }
+  .editorial-about { grid-template-columns: 1fr 1fr; }
+  .editorial-about-words { display: none; }
+}
+@media (max-width: 620px) {
+  .header-inner { min-height: 70px; }
+  .brand-logo-window { width: 75px; height: 64px; }
+  .editorial-hero { min-height: 540px; align-items: flex-end; }
+  .editorial-hero > img { object-position: 65% center; }
+  .editorial-hero-overlay { background: linear-gradient(0deg, rgb(37 21 17 / 83%), rgb(37 21 17 / 27%) 80%); }
+  .editorial-hero-content { padding-block: 90px 48px; }
+  .editorial-hero h1 { font-size: clamp(2.7rem, 10vw, 4.1rem); }
+  .editorial-categories-grid { grid-template-columns: repeat(2, 1fr); padding-block: 8px; }
+  .editorial-categories a { min-height: 102px; }
+  .editorial-categories a:nth-child(3) { border-right: 1px solid #dac9ba; }
+  .editorial-categories a:nth-child(even) { border-right: 0; }
+  .editorial-categories a:nth-child(n + 3) { border-top: 1px solid #dac9ba; }
+  .editorial-work { padding-block: 42px; }
+  .editorial-gallery { grid-template-columns: repeat(2, 1fr); }
+  .editorial-gallery-image { height: 175px; }
+  .editorial-about { grid-template-columns: 1fr; }
+  .editorial-about-visual { min-height: 300px; }
+  .editorial-about-copy { padding: 38px 24px; }
+  .editorial-contact .container { align-items: flex-start; flex-direction: column; }
+}

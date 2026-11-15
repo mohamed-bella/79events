@@ -3,7 +3,7 @@ import {notFound} from 'next/navigation';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
 import {hasLocale} from 'next-intl';
-import {Instrument_Sans, Rubik} from 'next/font/google';
+import {Instrument_Sans, Instrument_Serif, Rubik} from 'next/font/google';
 import {ArrowUpRight} from 'lucide-react';
 import {routing} from '@/i18n/routing';
 import {SiteHeader} from '@/components/site-header';
@@ -15,6 +15,7 @@ import '../globals.css';
 
 const rubik = Rubik({subsets:['latin'], variable:'--font-rubik', display:'swap'});
 const instrumentSans = Instrument_Sans({weight:['400','500','600','700'], subsets:['latin'], variable:'--font-instrument-sans', display:'swap'});
+const instrumentSerif = Instrument_Serif({weight:'400', subsets:['latin'], variable:'--font-instrument-serif', display:'swap'});
 
 export const metadata: Metadata = {
   metadataBase:new URL(getSiteUrl()),
@@ -35,7 +36,7 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
   const messages = await getMessages();
   return (
       <html lang={locale} data-scroll-behavior="smooth">
-      <body className={`${rubik.variable} ${instrumentSans.variable}`}>
+      <body className={`${rubik.variable} ${instrumentSans.variable} ${instrumentSerif.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <AnalyticsInteractions />
           <a className="skip-link" href="#main-content">Passer au contenu</a>
