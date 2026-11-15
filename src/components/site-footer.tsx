@@ -29,24 +29,28 @@ export async function SiteFooter({locale}: {locale: Locale}) {
           <span className="footer-location">{t('location')}</span>
         </div>
         <div className="footer-links-col">
-          <h2><Compass size={15} aria-hidden="true" />{t('explore')}</h2>
-          {['events','mice','services','locations'].map((key) => {
-            const page = pages[key as keyof typeof pages];
-            return page ? <Link key={key} href={pathFor(page, locale)}>{nav(key === 'locations' ? 'destinations' : key)}</Link> : null;
+          <h2><Compass size={15} aria-hidden="true" />{nav('services')}</h2>
+          {['services','event-planning','event-management','event-production','event-logistics','venue-finding'].map((key) => {
+            const page = getPageByKey(key);
+            return page ? <Link key={key} href={pathFor(page, locale)}>{key === 'services' ? nav('services') : page.copy[locale].eyebrow}</Link> : null;
           })}
         </div>
         <div className="footer-links-col">
-          <h2><Building2 size={15} aria-hidden="true" />{t('company')}</h2>
-          {['about','contact','proposal'].map((key) => {
-            const page = pages[key as keyof typeof pages];
-            return page ? <Link key={key} href={pathFor(page, locale)}>{key === 'proposal' ? nav('proposal') : nav(key)}</Link> : null;
+          <h2><Building2 size={15} aria-hidden="true" />{nav('events')}</h2>
+          {['events','corporate-events','conferences','product-launches','team-building','mice'].map((key) => {
+            const page = getPageByKey(key);
+            return page ? <Link key={key} href={pathFor(page, locale)}>{key === 'events' || key === 'mice' ? nav(key) : page.copy[locale].eyebrow}</Link> : null;
           })}
         </div>
         <div className="footer-links-col footer-contact-col">
-          <h2><MapPin size={15} aria-hidden="true" />{t('contact')}</h2>
+          <h2><MapPin size={15} aria-hidden="true" />{t('explore')}</h2>
+          {['locations','marrakech','casablanca','rabat','about','portfolio','contact','request-a-proposal'].map((key) => {
+            const page = getPageByKey(key);
+            const label = key === 'locations' ? nav('destinations') : key === 'request-a-proposal' ? nav('proposal') : ['about','portfolio','contact'].includes(key) ? nav(key) : page?.copy[locale].eyebrow;
+            return page ? <Link key={key} href={pathFor(page, locale)}>{label}</Link> : null;
+          })}
           {company.email && <a data-track-event="email_clicked" href={`mailto:${company.email}`}><span>{t('email')}</span>{company.email}<ArrowUpRight size={14} /></a>}
           {company.phone && <a data-track-event="phone_clicked" href={`tel:${company.phone.replace(/\s+/g, '')}`}><span>{t('phone')}</span>{company.phone}<ArrowUpRight size={14} /></a>}
-          {!company.email && !company.phone && <Link href={pathFor(pages.contact!, locale)}>{nav('contact')}<ArrowUpRight size={14} /></Link>}
           {company.socialLinks.linkedin && <a href={company.socialLinks.linkedin} target="_blank" rel="noreferrer"><span>LinkedIn</span><ArrowUpRight size={14} /></a>}
           {company.socialLinks.instagram && <a href={company.socialLinks.instagram} target="_blank" rel="noreferrer"><span>Instagram</span><ArrowUpRight size={14} /></a>}
         </div>

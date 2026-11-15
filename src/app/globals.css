@@ -1188,3 +1188,24 @@ body:has(.editorial-home) .site-footer .footer-main { padding-block: 30px; }
   .editorial-about-copy { padding: 38px 24px; }
   .editorial-contact .container { align-items: flex-start; flex-direction: column; }
 }
+
+/* Five direct navigation links; the full sitemap lives in the footer. */
+.simple-site-header .simple-desktop-nav { margin-left: auto; gap: clamp(20px, 2.5vw, 42px); }
+.simple-site-header .simple-desktop-nav a { font-size: 12px; font-weight: 600; }
+.simple-site-header .menu-toggle { display: none; }
+.simple-mobile-menu { display: none; }
+.simple-mobile-links { display: grid; gap: 0; padding-block: 12px 24px; }
+.simple-mobile-links a { display: flex; min-height: 54px; align-items: center; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 16px; font-weight: 600; }
+.simple-mobile-links a:hover { color: var(--ocean); }
+.site-footer .footer-main { grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .simple-site-header .simple-desktop-nav { display: none; }
+  .simple-site-header .menu-toggle { display: inline-flex; margin-left: auto; }
+  .simple-mobile-menu { display: block; }
+  .site-footer .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .simple-site-header .menu-toggle { width: 44px; }
+  .site-footer .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 20px; }
+  .site-footer .footer-brand-col, .site-footer .footer-contact-col { grid-column: 1 / -1; }
+}
