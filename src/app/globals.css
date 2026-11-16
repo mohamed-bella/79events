@@ -1036,7 +1036,7 @@ h1, h2, h3, h4, h5, h6, .content-hero h1, .service-panel-copy strong {
 .inner-landing-hero { min-height: 475px; }
 .inner-landing-hero .landing-hero-inner { padding-block: 90px; }
 .inner-landing-hero h1 { max-width: 850px; font-size: clamp(2.4rem, 4.4vw, 4.25rem); }
-.inner-landing-hero .landing-hero-inner > p:not(.landing-eyebrow) { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.inner-landing-hero .landing-hero-inner > p:not(.landing-eyebrow) { max-width: 580px; }
 .landing-main { padding-block: 72px 94px; }
 .landing-section-heading { max-width: 650px; margin-bottom: 28px; }
 .landing-section-heading h2, .landing-feature h2, .landing-related h2, .landing-form h2 { margin: 0 0 14px; font-size: clamp(1.75rem, 3vw, 2.65rem); line-height: 1.13; }
@@ -1129,6 +1129,12 @@ body:has(.landing-page) .site-footer .footer-project { display: none; }
 .editorial-featured-card:hover img { transform: scale(1.05); }
 .editorial-featured-card > span { position: relative; z-index: 1; display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 15px; padding: 22px; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(1.45rem, 2vw, 2.3rem); line-height: 1.1; }
 .editorial-featured-card svg { flex: none; }
+.editorial-featured-item { position: relative; min-width: 0; }
+.editorial-featured-item .editorial-featured-card { height: 100%; }
+.photo-credit { position: absolute; z-index: 5; right: 8px; bottom: 8px; display: inline-block; max-width: calc(100% - 16px); padding: 4px 7px; border-radius: 2px; background: rgb(28 21 18 / 72%); color: #fff !important; font-family: Arial, sans-serif; font-size: 9px; font-weight: 400; line-height: 1.2; text-align: right; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.photo-credit:hover, .photo-credit:focus-visible { background: #2d1c16; text-decoration: underline; }
+.editorial-hero > .photo-credit, .landing-hero > .photo-credit { bottom: 12px; }
+.editorial-featured-item > .photo-credit { bottom: 8px; }
 .editorial-work { padding-block: 55px; }
 .editorial-work-grid { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 2.3fr); align-items: center; gap: 38px; }
 .editorial-work-copy h2, .editorial-about-copy h2 { max-width: 420px; color: #793b2b; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(2rem, 3.3vw, 3.8rem); font-weight: 400; line-height: 1.08; }

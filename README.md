@@ -44,6 +44,10 @@ Review the privacy-policy draft and complete the legal controller, retention per
 
 Set `NEXT_PUBLIC_SITE_URL` to the verified canonical domain. Until a non-placeholder domain is configured, generated pages carry `noindex` and `sitemap.xml` is empty. Configure company contact and social details with the `NEXT_PUBLIC_COMPANY_*` and `NEXT_PUBLIC_*_URL` variables. Empty contact values stay hidden.
 
+## Unsplash photos
+
+The site uses a curated catalog of 50 hotlinked Unsplash images in `src/content/unsplash-photos.json`. Photo placement is defined in `src/content/unsplash.ts`, and each displayed photo links to its photographer credit. To refresh the catalog, set `UNSPLASH_ACCESS_KEY` in your local shell and run `node scripts/fetch-unsplash.mjs`. The key is used only while fetching and must not be committed. Run `node scripts/track-unsplash.mjs` to register selected photos with Unsplash; if the demo API limit interrupts the run, pass the next photo index to resume after the limit resets.
+
 ## Content and routes
 
 - `src/content/registry.ts` stores published page content, translated page slugs, metadata inputs, relationships and indexability. Only the French routes are public.
