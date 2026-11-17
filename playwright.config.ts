@@ -22,7 +22,7 @@ export default defineConfig({
     reuseExistingServer:!process.env.CI,
     timeout:120_000,
     env:{
-      NEXT_PUBLIC_SITE_URL:'https://www.79events.test',
+      NEXT_PUBLIC_SITE_URL:'https://www.dakhlaevents.test',
       RESEND_API_KEY:'',
       RESEND_FROM_EMAIL:'',
       LEAD_NOTIFICATION_EMAIL:'',

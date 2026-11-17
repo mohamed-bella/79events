@@ -1,8 +1,8 @@
-# 79 Events
+# Dakhla Events
 
-A Next.js App Router website for corporate events, conferences, exhibitions and business tourism in Morocco. The public website is available in French only, at the root URL and with French page slugs.
+A Next.js App Router reproduction of the Dakhla Events homepage. It uses the source site's imagery, French copy, dark and gold visual style, hero carousel, scroll reveals, gallery, and contact layout. The public site is French only.
 
-The brand name is a working project value. Confirm the company name, domain, contact details and any public credentials before launch. The site contains no client logos, testimonials, operating statistics, venue capacities or case studies without supplied approval.
+The homepage media is stored in `public/images/dakhla-reference/`. The owner confirmed permission to reuse it. Run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fetch-dakhla-assets.ps1` to refresh the nine downloaded assets. The contact form opens a prepared email to the published Dakhla Events address.
 
 ## Run locally
 
@@ -24,7 +24,7 @@ npm run build
 npm run test:e2e
 ```
 
-The Playwright suite starts a local development server on port 3100 and checks French-only routing, mobile navigation, proposal validation, non-indexable pages and horizontal overflow at 375, 768, 1024 and 1440 pixels. It uses the locally installed Chromium browser.
+The Playwright suite starts a local development server on port 3100 and checks the Dakhla homepage, carousel, mobile navigation, gallery, contact details, and horizontal overflow at 375, 768, 1024 and 1440 pixels. It uses the locally installed Chromium browser.
 
 ## Lead delivery
 

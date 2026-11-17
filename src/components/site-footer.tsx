@@ -1,5 +1,4 @@
 import {ArrowUpRight, Building2, Compass, MapPin} from 'lucide-react';
-import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/routing';
 import {getPageByKey, pathFor, type Locale} from '@/content/registry';
@@ -21,9 +20,7 @@ export async function SiteFooter({locale}: {locale: Locale}) {
       <div className="footer-main container">
         <div className="footer-brand-col">
           <Link href="/" className="brand brand-inverse" aria-label={`${company.name} — accueil`}>
-            <span className="brand-logo-window">
-              <Image className="brand-logo" src="/images/79events-logo-terracotta.png" width={1280} height={1152} alt="" aria-hidden="true" />
-            </span>
+            <span className="dakhla-wordmark">DAKHLA<span>EVENTS</span></span>
           </Link>
           <p className="footer-statement">{t('statement')}</p>
           <span className="footer-location">{t('location')}</span>

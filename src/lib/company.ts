@@ -3,16 +3,16 @@ const fallbackSiteUrl = process.env.NODE_ENV === 'production'
   : 'http://localhost:3000';
 
 export const company = {
-  // Working project name; confirm the public brand before launch.
-  name: process.env.NEXT_PUBLIC_COMPANY_NAME || '79 Events',
-  description: 'Organisation, production et coordination d’événements d’entreprise et de tourisme d’affaires au Maroc.',
+  // Public brand and contact details are mirrored from the approved source site.
+  name: process.env.NEXT_PUBLIC_COMPANY_NAME || 'Dakhla Events',
+  description: 'Agence événementielle de prestige à Dakhla, entre Sahara et Atlantique.',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteUrl,
-  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || '',
-  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || '',
-  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS || '',
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || 'contact@dakhlaevents.ma',
+  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || '+212 663 32 23 02',
+  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS || 'Dakhla, Morocco',
   socialLinks: {
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || '',
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/dakhlaevents.ma/',
   },
   languages: ['fr'] as const,
   locations: ['Marrakech', 'Casablanca', 'Rabat', 'Tanger', 'Agadir', 'Fès'],

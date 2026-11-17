@@ -1,7 +1,6 @@
 'use client';
 
 import {useEffect, useRef, useState} from 'react';
-import Image from 'next/image';
 import {useLocale, useTranslations} from 'next-intl';
 import {Menu, X} from 'lucide-react';
 import {Link} from '@/i18n/routing';
@@ -32,8 +31,8 @@ export function SiteHeader() {
 
   return <header className="site-header simple-site-header">
     <div className="header-inner container">
-      <Link href="/" className="brand" aria-label="79 Events — accueil" onClick={closeMenu}>
-        <span className="brand-logo-window"><Image className="brand-logo" src="/images/79events-logo-terracotta.png" width={1280} height={1152} alt="" aria-hidden="true" priority /></span>
+      <Link href="/" className="brand" aria-label="Dakhla Events — accueil" onClick={closeMenu}>
+        <span className="dakhla-wordmark">DAKHLA<span>EVENTS</span></span>
       </Link>
       <nav className="corporate-nav simple-desktop-nav" aria-label={locale === 'fr' ? 'Navigation principale' : 'Main navigation'}>
         {links.map((link) => <Link key={link.key} href={link.href}>{link.label}</Link>)}
