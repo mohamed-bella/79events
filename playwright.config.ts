@@ -1,6 +1,6 @@
 import {defineConfig, devices} from '@playwright/test';
 
-const port = 3100;
+const port = Number(process.env.TEST_PORT || (process.env.CI ? 3100 : 3000));
 const host = 'localhost';
 
 export default defineConfig({
@@ -22,7 +22,7 @@ export default defineConfig({
     reuseExistingServer:!process.env.CI,
     timeout:120_000,
     env:{
-      NEXT_PUBLIC_SITE_URL:'https://www.dakhlaevents.test',
+      NEXT_PUBLIC_SITE_URL:'https://www.79events.test',
       RESEND_API_KEY:'',
       RESEND_FROM_EMAIL:'',
       LEAD_NOTIFICATION_EMAIL:'',

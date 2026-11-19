@@ -14,9 +14,9 @@ export async function generateMetadata({params}: {params:Promise<{locale:string}
   const path = '/';
   const canonical = `${getSiteUrl()}${path}`;
   return {
-    ...pageMetadata({title:'Dakhla Events — Agence Événementielle de Luxe à Dakhla, Maroc', description:'Des expériences sur-mesure au cœur du Sahara et de l’Atlantique. Mariages, galas, lancements et événements corporate à Dakhla.', path, indexable:true}),
+    ...pageMetadata({title:'79events — Agence Événementielle de Prestige au Maroc', description:'Des expériences sur-mesure au Maroc. Mariages, galas, lancements et événements corporate d’exception.', path, indexable:true}),
     alternates:{canonical,languages:{fr:canonical,'x-default':canonical}},
-    openGraph:{type:'website',url:canonical,siteName:company.name,title:'Dakhla Events — Agence Événementielle de Luxe à Dakhla, Maroc',description:'Des expériences sur-mesure au cœur du Sahara et de l’Atlantique.',locale:'fr_FR'},
+    openGraph:{type:'website',url:canonical,siteName:company.name,title:'79events — Agence Événementielle de Prestige au Maroc',description:'Des expériences sur-mesure au Maroc.',locale:'fr_FR'},
   };
 }
 

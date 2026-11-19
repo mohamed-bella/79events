@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "homeTitle": "Événements d’entreprise et tourisme d’affaires au Maroc | Dakhla Events",
+    "homeTitle": "Événements d’entreprise et tourisme d’affaires au Maroc | 79events",
     "homeDescription": "Organisez vos événements d’entreprise, conférences, salons et rencontres professionnelles au Maroc avec une équipe locale coordonnée.",
     "homeOgTitle": "Des événements d’entreprise au Maroc, préparés avec méthode",
     "homeOgDescription": "Organisation, production, lieux et logistique pour les organisations qui se réunissent au Maroc."
@@ -104,37 +104,14 @@
       {"title":"Coordonner sur place","body":"S’appuyer sur un conducteur commun et une voie d’escalade claire, de l’installation à la clôture."}
     ],
     "portfolioNote": "La sélection publique de réalisations est en préparation. Nous ne publions les détails d’un projet qu’après accord du client ; partagez votre demande pour échanger sur une expérience pertinente.",
-    "venuesNote": "Il s’agit d’un service de recherche de lieux, pas d’un inventaire en temps réel. Les équipements, capacités, informations d’accessibilité et disponibilités sont vérifiés pour chaque proposition."
-  },
-  "form": {
-    "eyebrow": "Entrons en contact",
-    "title": "Parlez-nous de votre événement.",
-    "intro": "Quelques informations utiles nous aideront à vous répondre avec les bonnes questions. Les champs obligatoires sont nécessaires à l’envoi.",
-    "fullName": "Nom complet",
-    "company": "Entreprise",
-    "email": "E-mail professionnel",
-    "phone": "Téléphone",
-    "country": "Pays",
-    "eventType": "Type d’événement",
-    "city": "Ville souhaitée",
-    "guests": "Nombre de participants estimé",
-    "startDate": "Date de début",
-    "endDate": "Date de fin",
-    "budget": "Budget estimé (facultatif)",
-    "services": "Accompagnement souhaité",
-    "requirements": "Besoins complémentaires",
-    "consent": "J’accepte que mes informations soient utilisées pour répondre à cette demande, conformément à la politique de confidentialité.",
-    "required": "Obligatoire",
-    "choose": "Choisir une option",
-    "send": "Envoyer la demande",
-    "sending": "Envoi en cours…",
-    "success": "Merci. Votre demande a bien été envoyée. Nous vous répondrons avec les coordonnées indiquées.",
-    "failure": "Votre demande n’a pas pu être envoyée pour le moment. Veuillez réessayer dans quelques instants.",
-    "unavailable": "Le service de demande n’est pas encore configuré. Veuillez contacter le responsable du site pour terminer sa mise en place.",
-    "validation": "Vérifiez les champs signalés, puis réessayez.",
-    "eventTypes": ["Événement d’entreprise", "Conférence", "Réunion professionnelle", "Exposition", "Salon professionnel", "Lancement de produit", "Dîner de gala", "Activité de cohésion d’équipe", "Voyage de motivation", "Autre"],
-    "servicesList": ["Planification et gestion", "Recherche de lieu", "Production événementielle", "Logistique invités et inscriptions", "Coordination des transports", "Hospitalité", "Autre"],
-    "cities": ["Marrakech", "Casablanca", "Rabat", "Tanger", "Agadir", "Fès", "Essaouira", "Ouarzazate", "À définir ensemble"],
-    "privacyLink": "Politique de confidentialité"
+    "venuesNote": "Il s’agit d’un service de recherche de lieux, pas d’un inventaire en temps réel. Les équipements, capacités, informations d’accessibilité et disponibilités sont vérifiés pour chaque proposition.",
+    "companyDetails": {
+      "eyebrow": "Informations officielles",
+      "title": "Identité de l’entreprise",
+      "intro": "Les informations d’enregistrement ci-dessous identifient l’entité juridique qui exploite 79events.",
+      "legalName": "Dénomination légale",
+      "address": "Adresse du siège",
+      "founded": "Date de création"
+    }
   }
 }

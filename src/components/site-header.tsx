@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect, useRef, useState} from 'react';
+import Image from 'next/image';
 import {useLocale, useTranslations} from 'next-intl';
 import {Menu, X} from 'lucide-react';
 import {Link} from '@/i18n/routing';
@@ -12,8 +13,16 @@ export function SiteHeader() {
   const locale = useLocale() as Locale;
   const t = useTranslations('nav');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerScrolled, setHeaderScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    const updateHeader = () => setHeaderScrolled(window.scrollY > 18);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, {passive: true});
+    return () => window.removeEventListener('scroll', updateHeader);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -29,10 +38,10 @@ export function SiteHeader() {
 
   const links = mainLinks.map((key) => ({key, href:key === 'home' ? '/' : pathFor(getPageByKey(key)!, locale), label:t(key)}));
 
-  return <header className="site-header simple-site-header">
+  return <header className={`site-header simple-site-header${headerScrolled ? ' is-scrolled' : ''}`}>
     <div className="header-inner container">
-      <Link href="/" className="brand" aria-label="Dakhla Events — accueil" onClick={closeMenu}>
-        <span className="dakhla-wordmark">DAKHLA<span>EVENTS</span></span>
+      <Link href="/" className="brand" aria-label="79events — accueil" onClick={closeMenu}>
+        <Image src="/images/logo.png" alt="79events" width={64} height={60} priority className="site-header-logo" />
       </Link>
       <nav className="corporate-nav simple-desktop-nav" aria-label={locale === 'fr' ? 'Navigation principale' : 'Main navigation'}>
         {links.map((link) => <Link key={link.key} href={link.href}>{link.label}</Link>)}

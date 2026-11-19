@@ -40,9 +40,19 @@ export function jsonLd(page: SitePage | null, locale: Locale) {
   const nodes: Record<string,unknown>[] = [
     {
       '@context':'https://schema.org', '@type':'Organization', name:company.name,
+      legalName:company.legalName,
+      foundingDate:company.foundingDate,
       url:base, description:company.description,
+      address:{
+        '@type':'PostalAddress',
+        streetAddress:company.postalAddress.streetAddress,
+        addressLocality:company.postalAddress.addressLocality,
+        addressCountry:company.postalAddress.addressCountry,
+      },
+      identifier:company.identifiers.map((identifier) => ({
+        '@type':'PropertyValue', propertyID:identifier.propertyID, value:identifier.value,
+      })),
       ...(company.email ? {email:company.email} : {}),
-      ...(company.phone ? {telephone:company.phone} : {}),
     },
     {
       '@context':'https://schema.org', '@type':'WebSite', name:company.name,

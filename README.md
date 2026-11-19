@@ -1,8 +1,8 @@
-# Dakhla Events
+# 79 Events
 
-A Next.js App Router reproduction of the Dakhla Events homepage. It uses the source site's imagery, French copy, dark and gold visual style, hero carousel, scroll reveals, gallery, and contact layout. The public site is French only.
+A Next.js App Router website for 79events. It features luxury event design and production across Morocco, with GSAP hero slider, scroll reveals, gallery showcase, and contact layout. The public site is French only.
 
-The homepage media is stored in `public/images/dakhla-reference/`. The owner confirmed permission to reuse it. Run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fetch-dakhla-assets.ps1` to refresh the nine downloaded assets. The contact form opens a prepared email to the published Dakhla Events address.
+The site imagery is stored in `public/images/dakhla-reference/`. The owner confirmed permission to reuse it. Run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fetch-dakhla-assets.ps1` to refresh the nine downloaded assets. `src/content/site-photos.ts` assigns these local images to the inner pages. The contact form opens a prepared email to the published Dakhla Events address.
 
 ## Run locally
 
@@ -43,10 +43,6 @@ Review the privacy-policy draft and complete the legal controller, retention per
 ## Business configuration
 
 Set `NEXT_PUBLIC_SITE_URL` to the verified canonical domain. Until a non-placeholder domain is configured, generated pages carry `noindex` and `sitemap.xml` is empty. Configure company contact and social details with the `NEXT_PUBLIC_COMPANY_*` and `NEXT_PUBLIC_*_URL` variables. Empty contact values stay hidden.
-
-## Unsplash photos
-
-The site uses a curated catalog of 50 hotlinked Unsplash images in `src/content/unsplash-photos.json`. Photo placement is defined in `src/content/unsplash.ts`, and each displayed photo links to its photographer credit. To refresh the catalog, set `UNSPLASH_ACCESS_KEY` in your local shell and run `node scripts/fetch-unsplash.mjs`. The key is used only while fetching and must not be committed. Run `node scripts/track-unsplash.mjs` to register selected photos with Unsplash; if the demo API limit interrupts the run, pass the next photo index to resume after the limit resets.
 
 ## Content and routes
 

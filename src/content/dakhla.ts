@@ -1,13 +1,14 @@
 const root = '/images/dakhla-reference';
 export const dakhlaImage = (name: string) => `${root}/${name}.jpg`;
+export const homeImage = (name: string) => name.startsWith('/') ? name : dakhlaImage(name);
 
-export const heroImages = ['hero-event', 'wedding-beach', 'gala-event', 'desert-dinner', 'corporate-event', 'wedding-ceremony'];
+export const heroImages = ['hero-event', 'wedding-beach', '/images/stock/audience.webp', 'gala-event', 'desert-dinner', '/images/stock/presentation.webp'];
 
 export const dakhlaServices = [
   {title: "Mariages d'Exception", icon: 'heart', image: 'wedding-ceremony', lead: 'Cérémonies intimistes ou grandioses, entre dunes dorées et océan. Chaque mariage est une œuvre unique.', detail: 'De la plage dorée de Dakhla aux tentes berbères sous les étoiles, nous créons des mariages qui racontent votre histoire. Décoration florale sur-mesure, traiteur gastronomique, coordination jour-J — chaque détail est pensé pour que ce jour soit inoubliable.'},
   {title: 'Galas & Soirées Privées', icon: 'crown', image: 'gala-event', lead: 'Des soirées qui marquent les esprits. Scénographie, entertainment, gastronomie — tout est orchestré.', detail: 'Nos galas allient raffinement et spectacle. Thématiques exclusives, artistes internationaux, mises en scène cinématographiques et menus signés par des chefs étoilés. Une expérience sensorielle complète pour vos invités les plus exigeants.'},
   {title: 'Événements Corporate', icon: 'briefcase', image: 'corporate-event', lead: 'Lancements de produits, incentives, séminaires, conférences, congrès. L’excellence au service de votre marque.', detail: 'Nous transformons vos objectifs business en expériences mémorables. Team building dans le désert, conférences face à l’océan, lancements de produits spectaculaires — le cadre unique de Dakhla amplifie l’impact de chaque événement.'},
-  {title: 'Prestations Technique', icon: 'monitor', image: 'technical-setup', lead: 'Sonorisation, écran LED, structure, scène, éclairage, régie, photos et vidéo, streaming.', detail: 'Notre équipe technique déploie un matériel professionnel de dernière génération : systèmes de sonorisation line array, murs d’écrans LED haute résolution, éclairages architecturaux et scéniques, structures scéniques sur-mesure, régie vidéo multicaméra et diffusion en streaming live.'},
+  {title: 'Prestations Technique', icon: 'monitor', image: '/images/stock/microphone.webp', lead: 'Sonorisation, écran LED, structure, scène, éclairage, régie, photos et vidéo, streaming.', detail: 'Notre équipe technique déploie un matériel professionnel de dernière génération : systèmes de sonorisation line array, murs d’écrans LED haute résolution, éclairages architecturaux et scéniques, structures scéniques sur-mesure, régie vidéo multicaméra et diffusion en streaming live.'},
 ] as const;
 
 export const dakhlaExpertise = [

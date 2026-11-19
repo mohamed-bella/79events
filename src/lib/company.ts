@@ -4,15 +4,26 @@ const fallbackSiteUrl = process.env.NODE_ENV === 'production'
 
 export const company = {
   // Public brand and contact details are mirrored from the approved source site.
-  name: process.env.NEXT_PUBLIC_COMPANY_NAME || 'Dakhla Events',
-  description: 'Agence événementielle de prestige à Dakhla, entre Sahara et Atlantique.',
+  name: process.env.NEXT_PUBLIC_COMPANY_NAME || '79events',
+  legalName: '79 EVENTS',
+  foundingDate: '2026-10-13',
+  description: 'Agence événementielle de prestige au Maroc.',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteUrl,
-  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || 'contact@dakhlaevents.ma',
-  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || '+212 663 32 23 02',
-  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS || 'Dakhla, Morocco',
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || 'contact@79events.com',
+  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS || 'N° 1-2-3 Rue Mansour Eddahbi, Ouarzazate, Maroc',
+  postalAddress: {
+    streetAddress: 'N° 1-2-3 Rue Mansour Eddahbi',
+    addressLocality: 'Ouarzazate',
+    addressCountry: 'MA',
+  },
+  identifiers: [
+    {propertyID: 'ICE', value: '004039266000022'},
+    {propertyID: 'IF', value: '73441154'},
+    {propertyID: 'RC', value: '14161'},
+  ],
   socialLinks: {
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || '',
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/dakhlaevents.ma/',
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/79events/',
   },
   languages: ['fr'] as const,
   locations: ['Marrakech', 'Casablanca', 'Rabat', 'Tanger', 'Agadir', 'Fès'],

@@ -4,8 +4,7 @@ import {useEffect} from 'react';
 import {trackEvent, type SiteAnalyticsEvent} from '@/lib/analytics';
 
 const supportedEvents = new Set<SiteAnalyticsEvent>([
-  'proposal_form_started','proposal_form_submitted','proposal_form_failed','contact_form_submitted',
-  'phone_clicked','email_clicked','consultation_clicked','service_cta_clicked','venue_inquiry_started','language_changed',
+  'email_clicked','consultation_clicked','service_cta_clicked','venue_inquiry_started','language_changed',
 ]);
 
 export function AnalyticsInteractions() {

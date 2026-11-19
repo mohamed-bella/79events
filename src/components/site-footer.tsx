@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import {FooterLegalDetails} from '@/components/footer-legal-details';
 import {ArrowUpRight, Building2, Compass, MapPin} from 'lucide-react';
 import {getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/routing';
@@ -20,7 +22,7 @@ export async function SiteFooter({locale}: {locale: Locale}) {
       <div className="footer-main container">
         <div className="footer-brand-col">
           <Link href="/" className="brand brand-inverse" aria-label={`${company.name} — accueil`}>
-            <span className="dakhla-wordmark">DAKHLA<span>EVENTS</span></span>
+            <Image src="/images/logo.png" alt={company.name} width={88} height={82} className="site-footer-logo" />
           </Link>
           <p className="footer-statement">{t('statement')}</p>
           <span className="footer-location">{t('location')}</span>
@@ -47,11 +49,11 @@ export async function SiteFooter({locale}: {locale: Locale}) {
             return page ? <Link key={key} href={pathFor(page, locale)}>{label}</Link> : null;
           })}
           {company.email && <a data-track-event="email_clicked" href={`mailto:${company.email}`}><span>{t('email')}</span>{company.email}<ArrowUpRight size={14} /></a>}
-          {company.phone && <a data-track-event="phone_clicked" href={`tel:${company.phone.replace(/\s+/g, '')}`}><span>{t('phone')}</span>{company.phone}<ArrowUpRight size={14} /></a>}
           {company.socialLinks.linkedin && <a href={company.socialLinks.linkedin} target="_blank" rel="noreferrer"><span>LinkedIn</span><ArrowUpRight size={14} /></a>}
           {company.socialLinks.instagram && <a href={company.socialLinks.instagram} target="_blank" rel="noreferrer"><span>Instagram</span><ArrowUpRight size={14} /></a>}
         </div>
       </div>
+      <FooterLegalDetails />
       <div className="footer-bottom container">
         <span>© {new Date().getFullYear()} {company.name}. {t('rights')}</span>
         {pages.privacy && <Link href={pathFor(pages.privacy, locale)}>{t('privacy')}</Link>}

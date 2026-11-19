@@ -8,10 +8,7 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
-    qualities: [75, 85],
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-    ],
+    unoptimized: true,
   },
   poweredByHeader: false,
   async headers() {

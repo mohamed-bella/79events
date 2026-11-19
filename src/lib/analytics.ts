@@ -1,9 +1,4 @@
 export type SiteAnalyticsEvent =
-  | 'proposal_form_started'
-  | 'proposal_form_submitted'
-  | 'proposal_form_failed'
-  | 'contact_form_submitted'
-  | 'phone_clicked'
   | 'email_clicked'
   | 'consultation_clicked'
   | 'service_cta_clicked'

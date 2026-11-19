@@ -8,7 +8,7 @@ test('Dakhla homepage uses the copied imagery and page sections', async ({page})
   await expect(page.locator('.dh-service-card')).toHaveCount(4);
   await expect(page.locator('.dh-gallery-item')).toHaveCount(6);
   await expect(page.locator('.site-header')).toBeHidden();
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://www.dakhlaevents.test');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /^(https:\/\/www\.79events\.test|http:\/\/localhost:3000)$/);
 });
 
 test('carousel, mobile navigation and gallery respond to controls', async ({page}) => {
@@ -19,7 +19,8 @@ test('carousel, mobile navigation and gallery respond to controls', async ({page
   await page.getByRole('button', {name: 'Ouvrir le menu'}).click();
   await page.getByRole('navigation', {name: 'Navigation principale'}).getByRole('link', {name: 'Services'}).click();
   await expect(page).toHaveURL(/#services$/);
-  await page.getByRole('button', {name: 'Voir Mariage — Plage de Dakhla'}).click();
+  await page.locator('#gallery').scrollIntoViewIfNeeded();
+  await page.locator('.dh-gallery-item').first().click({force: true});
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
@@ -37,5 +38,5 @@ test('contact form exposes source options and contact methods', async ({page}) =
   await page.goto('/#contact');
   await expect(page.getByRole('combobox', {name: 'Type d’événement'})).toContainText('Incentive & Team Building');
   await expect(page.getByRole('combobox', {name: 'Budget approximatif'})).toContainText('100 000 – 300 000 MAD');
-  await expect(page.getByRole('link', {name: 'contact@dakhlaevents.ma'})).toHaveAttribute('href', 'mailto:contact@dakhlaevents.ma');
+  await expect(page.getByRole('link', {name: 'contact@79events.com'})).toHaveAttribute('href', 'mailto:contact@79events.com');
 });

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "homeTitle": "Corporate Events & MICE in Morocco | Dakhla Events",
+    "homeTitle": "Corporate Events & MICE in Morocco | 79events",
     "homeDescription": "Plan corporate events, conferences, exhibitions and MICE programmes across Morocco with one coordinated local team.",
     "homeOgTitle": "Corporate events in Morocco, thoughtfully delivered",
     "homeOgDescription": "Event planning, production, venues and on-site logistics for organizations meeting in Morocco."
@@ -97,37 +97,14 @@
       {"title":"Coordinate on site","body":"Keep one run of show and a clear escalation path from setup through close."}
     ],
     "portfolioNote": "The public case-study library is being prepared. We publish project detail only after client approval; share your brief and we can discuss relevant experience directly.",
-    "venuesNote": "This is a venue-sourcing service, not a live inventory. Venue facilities, capacities, accessibility and availability are confirmed against each proposal before they are shared."
-  },
-  "form": {
-    "eyebrow": "Start a conversation",
-    "title": "Tell us about the event.",
-    "intro": "A few useful details help us respond with the right questions. Fields marked required are needed to send your enquiry.",
-    "fullName": "Full name",
-    "company": "Company",
-    "email": "Work email",
-    "phone": "Phone number",
-    "country": "Country",
-    "eventType": "Event type",
-    "city": "Preferred city",
-    "guests": "Estimated guests",
-    "startDate": "Event start date",
-    "endDate": "Event end date",
-    "budget": "Estimated budget (optional)",
-    "services": "Support required",
-    "requirements": "Additional requirements",
-    "consent": "I agree that my information may be used to respond to this enquiry, as described in the privacy policy.",
-    "required": "Required",
-    "choose": "Choose an option",
-    "send": "Send enquiry",
-    "sending": "Sending…",
-    "success": "Thank you. Your enquiry has been sent. We’ll follow up using the contact details you provided.",
-    "failure": "We couldn’t send your enquiry just now. Please try again shortly.",
-    "unavailable": "The enquiry service is not configured yet. Please contact the site owner to complete setup.",
-    "validation": "Please review the highlighted fields and try again.",
-    "eventTypes": ["Corporate event", "Conference", "Business meeting", "Exhibition", "Trade show", "Product launch", "Gala dinner", "Team building", "Incentive event", "Other"],
-    "servicesList": ["Planning and management", "Venue sourcing", "Event production", "Guest and registration logistics", "Transportation coordination", "Hospitality", "Other"],
-    "cities": ["Marrakech", "Casablanca", "Rabat", "Tangier", "Agadir", "Fes", "Essaouira", "Ouarzazate", "Open to recommendation"],
-    "privacyLink": "Privacy policy"
+    "venuesNote": "This is a venue-sourcing service, not a live inventory. Venue facilities, capacities, accessibility and availability are confirmed against each proposal before they are shared.",
+    "companyDetails": {
+      "eyebrow": "Official details",
+      "title": "Company identity",
+      "intro": "The registration details below identify the legal entity operating 79events.",
+      "legalName": "Legal name",
+      "address": "Registered address",
+      "founded": "Date founded"
+    }
   }
 }
