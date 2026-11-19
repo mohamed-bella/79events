@@ -537,7 +537,7 @@ h1, h2, h3, h4 { font-weight: 750; letter-spacing: -.035em; }
 .site-menu-company a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-size: 12px; font-weight: 700; }
 
 /* Large scenic opening and overlapping service panels. */
-.home-hero { min-height: clamp(570px, calc(100svh - 86px), 790px); align-items: center; background: #15264b url('/images/hero-terrasse-maroc.png') center 48% / cover no-repeat; }
+.home-hero { min-height: clamp(570px, calc(100svh - 86px), 790px); align-items: center; background: #15264b url('/images/pexels/hero-event.jpg') center 48% / cover no-repeat; }
 .home-hero-image, .content-hero-image { z-index: 0; }
 .home-hero-image { object-position: center 48%; }
 .home-hero-shade, .content-hero-shade { z-index: 1; }
@@ -591,7 +591,7 @@ h1, h2, h3, h4 { font-weight: 750; letter-spacing: -.035em; }
 .floating-contact span:first-child { font-size: 19px; }
 
 /* Carry the navy and blue visual system into each service page. */
-.content-hero { background: #15264b url('/images/hero-terrasse-maroc.png') center 48% / cover no-repeat; }
+.content-hero { background: #15264b url('/images/pexels/hero-event.jpg') center 48% / cover no-repeat; }
 .content-hero-shade { background: linear-gradient(90deg, rgb(11 24 52 / 78%), rgb(11 24 52 / 48%) 62%, rgb(11 24 52 / 34%)), linear-gradient(0deg, rgb(11 24 52 / 42%), transparent 55%); }
 .location-stamp { color: #c8d9f6; }
 .capability-index, .capability-arrow, .process-index { color: var(--ocean); }
@@ -1225,3 +1225,30 @@ body:has(.editorial-home) .site-footer .footer-main { padding-block: 30px; }
   .site-footer .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 20px; }
   .site-footer .footer-brand-col, .site-footer .footer-contact-col { grid-column: 1 / -1; }
 }
+
+/* Terracotta canvas: warm surface, dark wine-brown anchors, ivory type. */
+body:has(.landing-page) { background: #a64732; }
+.landing-page { background: #a64732; color: #fff8f1; }
+.landing-page .landing-main { color: #fff8f1; }
+.landing-page .landing-feature { border-bottom-color: rgb(255 238 225 / 31%); }
+.landing-page .landing-feature h2,
+.landing-page .landing-related h2,
+.landing-page .landing-email-copy h2 { color: #fff8f1; }
+.landing-page .eyebrow { color: #ffe6d5; }
+.landing-page .eyebrow svg { color: #ffe0b8; }
+.landing-page .landing-feature-copy > p:not(.eyebrow),
+.landing-page .landing-points small,
+.landing-page .landing-email-copy > p:last-child,
+.landing-page .landing-legal-note { color: #f8ddd0; }
+.landing-page .landing-points strong { color: #fff8f1; }
+.landing-page .landing-points svg,
+.landing-page .landing-email-address { color: #ffe0b8; }
+.landing-page .landing-related { border-top: 1px solid rgb(255 238 225 / 31%); }
+.landing-page .landing-related a { border: 1px solid rgb(255 238 225 / 28%); background: rgb(76 26 18 / 34%); color: #fff8f1; }
+.landing-page .landing-related a:hover { border-color: #ffe0b8; color: #ffe0b8; }
+.landing-page .landing-email-contact { border-bottom-color: rgb(255 238 225 / 31%); }
+.landing-page .button-orange { background: #4b1d16; color: #fff8f1; }
+.landing-page .button-orange:hover { background: #2f110d; }
+.landing-page .landing-cta { background: #5c241b; }
+.landing-page .landing-cta .button { background: #fff8f1; color: #4b1d16; box-shadow: 0 4px 0 #3c160f, 0 10px 25px rgb(47 17 13 / 24%); }
+.landing-page .landing-cta .button:hover { background: #ffe8d8; }

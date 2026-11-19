@@ -1,27 +1,25 @@
-import {dakhlaImage} from './dakhla';
+import {pexelsImage} from './pexels';
 
 const photos = {
-  // CC0 photographs from the Twenty Twenty-Four collection (Rawpixel).
-  'museum-hall': {src: '/images/stock/museum.webp', alt: 'Vue intérieure d’un musée'},
-  'gallery-space': {src: '/images/stock/art-gallery.webp', alt: 'Espace d’exposition dans une galerie'},
-  'hotel-facade': {src: '/images/stock/hotel-facade.webp', alt: 'Façade d’un hôtel'},
-  'conference-audience': {src: '/images/stock/audience.webp', alt: 'Public assis lors d’une conférence'},
-  'conference-presentation': {src: '/images/stock/presentation.webp', alt: 'Présentation sur scène devant un public'},
-  'stage-microphone': {src: '/images/stock/microphone.webp', alt: 'Microphone sur scène avant une intervention'},
-  'hero-event': {src: dakhlaImage('hero-event'), alt: 'Réception événementielle en plein air'},
-  'wedding-beach': {src: dakhlaImage('wedding-beach'), alt: 'Cérémonie de mariage sur une plage'},
-  'wedding-ceremony': {src: dakhlaImage('wedding-ceremony'), alt: 'Décor de cérémonie de mariage'},
-  'gala-event': {src: dakhlaImage('gala-event'), alt: 'Soirée de gala'},
-  'desert-dinner': {src: dakhlaImage('desert-dinner'), alt: 'Dîner événementiel dans le désert'},
-  'private-dinner': {src: dakhlaImage('private-dinner'), alt: 'Table dressée pour un dîner privé'},
-  'corporate-event': {src: dakhlaImage('corporate-event'), alt: 'Événement professionnel'},
-  'technical-setup': {src: dakhlaImage('technical-setup'), alt: 'Installation technique pour un événement'},
+  'museum-hall': {src: pexelsImage('museum-hall'), alt: 'Vue intérieure d’un musée contemporain'},
+  'gallery-space': {src: pexelsImage('gallery-space'), alt: 'Espace d’exposition dans une galerie contemporaine'},
+  'hotel-facade': {src: pexelsImage('hotel-facade'), alt: 'Façade d’un hôtel de prestige'},
+  'conference-audience': {src: pexelsImage('conference-audience'), alt: 'Public assis lors d’une conférence'},
+  'conference-presentation': {src: pexelsImage('conference-presentation'), alt: 'Présentation sur scène devant un public'},
+  'stage-microphone': {src: pexelsImage('stage-microphone'), alt: 'Microphone sur scène avant une intervention'},
+  'hero-event': {src: pexelsImage('hero-event'), alt: 'Réception événementielle en plein air'},
+  'wedding-beach': {src: pexelsImage('wedding-beach'), alt: 'Cérémonie de mariage sur une plage'},
+  'wedding-ceremony': {src: pexelsImage('wedding-ceremony'), alt: 'Décor de cérémonie de mariage'},
+  'gala-event': {src: pexelsImage('gala-event'), alt: 'Soirée de gala élégante'},
+  'desert-dinner': {src: pexelsImage('desert-dinner'), alt: 'Dîner événementiel dans le désert'},
+  'private-dinner': {src: pexelsImage('private-dinner'), alt: 'Table dressée pour un dîner privé'},
+  'corporate-event': {src: pexelsImage('corporate-event'), alt: 'Événement professionnel sur une scène'},
+  'technical-setup': {src: pexelsImage('technical-setup'), alt: 'Installation technique pour un événement'},
 } as const;
 
 type PhotoKey = keyof typeof photos;
 export type SitePhoto = (typeof photos)[PhotoKey];
 
-// Reuse neutral event scenes for location pages rather than depicting another city.
 const pagePhotos: Record<string, readonly [PhotoKey, PhotoKey]> = {
   events: ['conference-audience', 'gala-event'],
   'corporate-events': ['conference-audience', 'private-dinner'],

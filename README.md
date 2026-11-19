@@ -2,7 +2,7 @@
 
 A Next.js App Router website for 79events. It features luxury event design and production across Morocco, with GSAP hero slider, scroll reveals, gallery showcase, and contact layout. The public site is French only.
 
-The site imagery is stored in `public/images/dakhla-reference/`. The owner confirmed permission to reuse it. Run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/fetch-dakhla-assets.ps1` to refresh the nine downloaded assets. `src/content/site-photos.ts` assigns these local images to the inner pages. The contact form opens a prepared email to the published Dakhla Events address.
+The site imagery is imported from Pexels and stored locally in `public/images/pexels/`. Keep `PEXELS_API_KEY` server-side in `.env.local` and run `npm run images:pexels` whenever the image set needs refreshing. `src/content/site-photos.ts` assigns relevant Pexels images to the inner pages. The contact form opens a prepared email to the published 79events address.
 
 ## Run locally
 

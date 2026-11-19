@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "images:pexels": "node scripts/fetch-pexels-images.mjs",
     "test:e2e": "playwright test",
     "test:e2e:report": "playwright show-report"
   },

@@ -66,6 +66,7 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
 .dh-heading h2 { font-size: clamp(2.6rem, 4.4vw, 4.6rem); }
 .dh-heading > span { width: 48px; margin-block: 25px 0; }
 .dh-service-cards, .dh-expertise-grid, .dh-reach-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.dh-service-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .dh-service-card { display: flex; min-height: 245px; align-items: center; flex-direction: column; padding: 30px 25px; border: 1px solid #38241d; background: var(--dh-card); text-align: center; transition: border-color .2s ease; }
 .dh-service-card:hover { border-color: var(--dh-gold); }
 .dh-service-card svg, .dh-story-copy svg, .dh-expertise-card svg, .dh-reach-grid svg, .dh-contact-details svg, .dh-instagram > .dh-container > svg { color: var(--dh-gold); }
@@ -224,3 +225,72 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
   .landing-related a:is(:hover, :focus-visible) svg { transform: translate(2px, -2px); }
 }
 .dh-footer .footer-legal-details { justify-content: center; color: var(--dh-muted); font-size: 12px; }
+
+/* Entry loader: keep the brand visible while the first view settles. */
+.dh-loader { position: fixed; z-index: 200; inset: 0; display: grid; place-items: center; background: #4b1d16; color: #fff8f1; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility .45s ease; }
+.dh-loader.is-hidden { pointer-events: none; opacity: 0; visibility: hidden; }
+.dh-loader-content { display: grid; justify-items: center; gap: 18px; width: min(86vw, 320px); text-align: center; animation: dh-loader-rise .55s ease-out both; }
+.dh-loader-logo { display: block; width: clamp(170px, 34vw, 230px); height: auto; filter: brightness(0) saturate(100%) invert(1) drop-shadow(0 12px 28px rgb(24 8 5 / 28%)); }
+.dh-loader-kicker { color: #f8ddd0; font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+.dh-loader-progress { display: block; width: min(190px, 52vw); height: 2px; overflow: hidden; background: rgb(255 233 220 / 28%); }
+.dh-loader-progress span { display: block; width: 45%; height: 100%; background: #ffe9dc; animation: dh-loader-progress 1.1s ease-in-out infinite; }
+
+/* Transparent navigation with a shadowed glass layer for hero-image contrast. */
+.dh-header { border-bottom-color: rgb(255 233 220 / 25%); background: rgb(47 17 13 / 38%); box-shadow: 0 10px 30px rgb(47 17 13 / 24%), inset 0 -1px 0 rgb(255 233 220 / 12%); backdrop-filter: blur(12px) saturate(125%); }
+.dh-header.is-scrolled { border-bottom-color: rgb(255 233 220 / 30%); background: rgb(75 29 22 / 86%); box-shadow: 0 12px 30px rgb(47 17 13 / 32%), inset 0 -1px 0 rgb(255 233 220 / 15%); }
+.dh-nav a, .dh-menu { color: #fff8f1; text-shadow: 0 2px 12px rgb(47 17 13 / 60%); }
+.dh-nav a:hover, .dh-nav a:focus-visible { color: #ffe9dc; }
+.dh-menu { border-radius: 999px; }
+
+@keyframes dh-loader-rise {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes dh-loader-progress {
+  from { transform: translateX(-115%); }
+  to { transform: translateX(240%); }
+}
+
+@media (max-width: 680px) {
+  .dh-nav { border-bottom-color: rgb(255 233 220 / 26%); background: rgb(75 29 22 / 96%); box-shadow: 0 14px 26px rgb(47 17 13 / 30%); backdrop-filter: blur(14px); }
+  .dh-nav a { color: #fff8f1; }
+  .dh-loader-content { gap: 15px; }
+  .dh-loader-logo { width: clamp(155px, 48vw, 195px); }
+  .dh-loader-kicker { font-size: 9px; letter-spacing: .16em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dh-loader, .dh-loader-content, .dh-loader-progress span { animation: none; transition: none; }
+}
+
+/* Terracotta-led Dakhla palette with light type and deep contrast panels. */
+body:has(.dakhla-home) { background: #6d2b20; }
+.dakhla-home {
+  --dh-bg: #a64732;
+  --dh-deep: #6d2b20;
+  --dh-card: #823725;
+  --dh-terracotta: #a64732;
+  --dh-terracotta-glow: #ffd1b3;
+  --dh-terracotta-deep: #4b1d16;
+  --dh-gold: #ffe9dc;
+  --dh-text: #fff8f1;
+  --dh-muted: #f8ddd0;
+}
+.dh-header { border-bottom-color: #f1d8c9; background: #fff8f1; }
+.dh-header.is-scrolled { border-bottom-color: rgb(241 216 201 / 76%); background: rgb(255 248 241 / 91%); }
+.dh-nav a, .dh-menu { color: #4b1d16; }
+.dh-hero { background: #4b1d16; }
+.dh-hero-shade { background: linear-gradient(to bottom, rgb(47 17 13 / 42%) 0%, rgb(47 17 13 / 72%) 54%, rgb(47 17 13 / 94%) 100%); }
+.dh-slider-controls > button { border-color: rgb(255 233 220 / 48%); background: rgb(75 29 22 / 82%); }
+.dh-dots button { background: rgb(75 29 22 / 70%); }
+.dh-service-card { border-color: rgb(255 233 220 / 34%); background: var(--dh-card); }
+.dh-service-card:hover { border-color: var(--dh-gold); background: #913e2b; }
+.dh-expertise-card { border-top-color: rgb(255 233 220 / 38%); }
+.dh-expertise-card:hover { border-color: var(--dh-gold); }
+.dh-gallery-item { background: #3b1711; }
+.dh-gallery-item::after { background: linear-gradient(transparent, rgb(47 17 13 / 88%)); }
+.dh-stats div { border-color: rgb(255 233 220 / 30%); background: #552117; }
+.dh-instagram-grid a { background: #4b1d16; }
+.dh-email-panel { border-color: rgb(255 233 220 / 32%); background: #552117; }
+.dh-footer { border-top-color: rgb(255 233 220 / 24%); background: #4b1d16; }
+.dh-lightbox > button { background: #4b1d16; }
