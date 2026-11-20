@@ -1252,3 +1252,7 @@ body:has(.landing-page) { background: #a64732; }
 .landing-page .landing-cta { background: #5c241b; }
 .landing-page .landing-cta .button { background: #fff8f1; color: #4b1d16; box-shadow: 0 4px 0 #3c160f, 0 10px 25px rgb(47 17 13 / 24%); }
 .landing-page .landing-cta .button:hover { background: #ffe8d8; }
+
+/* Premium serif display face for the event-led editorial hierarchy. */
+:root { --font-display-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display-serif); font-weight: 500; letter-spacing: -.025em; }

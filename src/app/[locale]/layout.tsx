@@ -3,7 +3,7 @@ import {notFound} from 'next/navigation';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
 import {hasLocale} from 'next-intl';
-import {DM_Sans} from 'next/font/google';
+import {Cormorant_Garamond, DM_Sans} from 'next/font/google';
 import {ArrowUpRight} from 'lucide-react';
 import {routing} from '@/i18n/routing';
 import {SiteHeader} from '@/components/site-header';
@@ -16,6 +16,7 @@ import '../globals.css';
 import '../styles.css';
 
 const dmSans = DM_Sans({subsets:['latin'], variable:'--font-dm-sans', display:'swap'});
+const cormorant = Cormorant_Garamond({subsets:['latin'], variable:'--font-cormorant', display:'swap', weight:['400','500','600'], style:['normal','italic']});
 
 export const metadata: Metadata = {
   metadataBase:new URL(getSiteUrl()),
@@ -36,7 +37,7 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
   const messages = await getMessages();
   return (
       <html lang={locale} data-scroll-behavior="smooth">
-      <body className={dmSans.variable}>
+      <body className={`${dmSans.variable} ${cormorant.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <AnalyticsInteractions />
           <ScrollAnimations />

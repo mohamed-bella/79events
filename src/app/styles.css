@@ -294,3 +294,17 @@ body:has(.dakhla-home) { background: #6d2b20; }
 .dh-email-panel { border-color: rgb(255 233 220 / 32%); background: #552117; }
 .dh-footer { border-top-color: rgb(255 233 220 / 24%); background: #4b1d16; }
 .dh-lightbox > button { background: #4b1d16; }
+
+/* Final palette layer: transparent hero navigation and an editorial serif hierarchy. */
+.dakhla-home h1, .dakhla-home h2, .dakhla-home h3 { font-family: var(--font-display-serif); font-weight: 500; letter-spacing: -.025em; }
+.dh-header { border-bottom-color: rgb(255 233 220 / 25%); background: rgb(47 17 13 / 38%); box-shadow: 0 10px 30px rgb(47 17 13 / 24%), inset 0 -1px 0 rgb(255 233 220 / 12%); backdrop-filter: blur(12px) saturate(125%); }
+.dh-header.is-scrolled { border-bottom-color: rgb(255 233 220 / 30%); background: rgb(75 29 22 / 86%); box-shadow: 0 12px 30px rgb(47 17 13 / 32%), inset 0 -1px 0 rgb(255 233 220 / 15%); }
+.dh-nav a, .dh-menu { color: #fff8f1; text-shadow: 0 2px 12px rgb(47 17 13 / 60%); }
+.dh-nav a:hover, .dh-nav a:focus-visible { color: #ffe9dc; }
+
+@media (max-width: 680px) {
+  .dh-nav { border-bottom-color: rgb(255 233 220 / 26%); background: rgb(75 29 22 / 96%); box-shadow: 0 14px 26px rgb(47 17 13 / 30%); backdrop-filter: blur(14px); }
+  .dh-nav a { min-height: 48px; border-bottom: 1px solid rgb(255 233 220 / 16%); color: #fff8f1; text-shadow: none; }
+  .dh-nav a:last-child { border-bottom: 0; }
+  .dh-nav a:hover, .dh-nav a:focus-visible { background: rgb(166 71 50 / 28%); color: #ffe9dc; }
+}
