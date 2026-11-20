@@ -537,7 +537,7 @@ h1, h2, h3, h4 { font-weight: 750; letter-spacing: -.035em; }
 .site-menu-company a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-size: 12px; font-weight: 700; }
 
 /* Large scenic opening and overlapping service panels. */
-.home-hero { min-height: clamp(570px, calc(100svh - 86px), 790px); align-items: center; background: #15264b url('/images/pexels/hero-event.jpg') center 48% / cover no-repeat; }
+.home-hero { min-height: clamp(570px, calc(100svh - 86px), 790px); align-items: center; background: #15264b url('/images/pexels/desert-dinner.jpg') center 48% / cover no-repeat; }
 .home-hero-image, .content-hero-image { z-index: 0; }
 .home-hero-image { object-position: center 48%; }
 .home-hero-shade, .content-hero-shade { z-index: 1; }
@@ -591,7 +591,7 @@ h1, h2, h3, h4 { font-weight: 750; letter-spacing: -.035em; }
 .floating-contact span:first-child { font-size: 19px; }
 
 /* Carry the navy and blue visual system into each service page. */
-.content-hero { background: #15264b url('/images/pexels/hero-event.jpg') center 48% / cover no-repeat; }
+.content-hero { background: #15264b url('/images/pexels/desert-dinner.jpg') center 48% / cover no-repeat; }
 .content-hero-shade { background: linear-gradient(90deg, rgb(11 24 52 / 78%), rgb(11 24 52 / 48%) 62%, rgb(11 24 52 / 34%)), linear-gradient(0deg, rgb(11 24 52 / 42%), transparent 55%); }
 .location-stamp { color: #c8d9f6; }
 .capability-index, .capability-arrow, .process-index { color: var(--ocean); }

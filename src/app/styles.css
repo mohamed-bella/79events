@@ -299,6 +299,8 @@ body:has(.dakhla-home) { background: #6d2b20; }
 .dakhla-home h1, .dakhla-home h2, .dakhla-home h3 { font-family: var(--font-display-serif); font-weight: 500; letter-spacing: -.025em; }
 .dh-header { border-bottom-color: rgb(255 233 220 / 25%); background: rgb(47 17 13 / 38%); box-shadow: 0 10px 30px rgb(47 17 13 / 24%), inset 0 -1px 0 rgb(255 233 220 / 12%); backdrop-filter: blur(12px) saturate(125%); }
 .dh-header.is-scrolled { border-bottom-color: rgb(255 233 220 / 30%); background: rgb(75 29 22 / 86%); box-shadow: 0 12px 30px rgb(47 17 13 / 32%), inset 0 -1px 0 rgb(255 233 220 / 15%); }
+.dh-logo { height: 82px; filter: brightness(0) invert(1) drop-shadow(0 5px 14px rgb(47 17 13 / 32%)); }
+.dh-header.is-scrolled .dh-logo { height: 64px; }
 .dh-nav a, .dh-menu { color: #fff8f1; text-shadow: 0 2px 12px rgb(47 17 13 / 60%); }
 .dh-nav a:hover, .dh-nav a:focus-visible { color: #ffe9dc; }
 
@@ -307,4 +309,31 @@ body:has(.dakhla-home) { background: #6d2b20; }
   .dh-nav a { min-height: 48px; border-bottom: 1px solid rgb(255 233 220 / 16%); color: #fff8f1; text-shadow: none; }
   .dh-nav a:last-child { border-bottom: 0; }
   .dh-nav a:hover, .dh-nav a:focus-visible { background: rgb(166 71 50 / 28%); color: #ffe9dc; }
+  .dh-logo { height: 68px; }
+  .dh-header.is-scrolled .dh-logo { height: 56px; }
+}
+
+/* Larger white wordmark for the corporate navigation. */
+.simple-site-header { border-bottom-color: rgb(255 233 220 / 18%); background: #4b1d16; }
+.simple-site-header .header-inner { min-height: 104px; }
+.simple-site-header .site-header-logo { width: auto; height: 86px; object-fit: contain; filter: brightness(0) invert(1); }
+.simple-site-header .brand { color: #fff8f1; }
+.simple-site-header .simple-desktop-nav a { color: #fff8f1; }
+.simple-site-header .simple-desktop-nav a:hover, .simple-site-header .simple-desktop-nav a:focus-visible { color: #ffe0b8; border-bottom-color: #ffe0b8; }
+.simple-site-header .menu-toggle { color: #fff8f1; }
+.simple-site-header.is-scrolled { border-bottom-color: rgb(255 233 220 / 22%); background: rgb(75 29 22 / 96%); box-shadow: 0 8px 25px rgb(47 17 13 / 26%); }
+.simple-site-header.is-scrolled .header-inner { min-height: 86px; }
+.simple-site-header.is-scrolled .site-header-logo { height: 72px; }
+
+@media (max-width: 900px) {
+  .simple-site-header .simple-mobile-menu { background: #4b1d16; }
+  .simple-site-header .simple-mobile-links a { border-bottom-color: rgb(255 233 220 / 18%); color: #fff8f1; }
+  .simple-site-header .simple-mobile-links a:hover, .simple-site-header .simple-mobile-links a:focus-visible { color: #ffe0b8; }
+}
+
+@media (max-width: 620px) {
+  .simple-site-header .header-inner { min-height: 78px; }
+  .simple-site-header .site-header-logo { height: 70px; }
+  .simple-site-header.is-scrolled .header-inner { min-height: 72px; }
+  .simple-site-header.is-scrolled .site-header-logo { height: 64px; }
 }

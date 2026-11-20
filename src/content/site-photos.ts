@@ -7,7 +7,7 @@ const photos = {
   'conference-audience': {src: pexelsImage('conference-audience'), alt: 'Public assis lors d’une conférence'},
   'conference-presentation': {src: pexelsImage('conference-presentation'), alt: 'Présentation sur scène devant un public'},
   'stage-microphone': {src: pexelsImage('stage-microphone'), alt: 'Microphone sur scène avant une intervention'},
-  'hero-event': {src: pexelsImage('hero-event'), alt: 'Réception événementielle en plein air'},
+  'hero-event': {src: pexelsImage('desert-dinner'), alt: 'Dîner événementiel dans le désert'},
   'wedding-beach': {src: pexelsImage('wedding-beach'), alt: 'Cérémonie de mariage sur une plage'},
   'wedding-ceremony': {src: pexelsImage('wedding-ceremony'), alt: 'Décor de cérémonie de mariage'},
   'gala-event': {src: pexelsImage('gala-event'), alt: 'Soirée de gala élégante'},

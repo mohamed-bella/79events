@@ -41,7 +41,7 @@ export function SiteHeader() {
   return <header className={`site-header simple-site-header${headerScrolled ? ' is-scrolled' : ''}`}>
     <div className="header-inner container">
       <Link href="/" className="brand" aria-label="79events — accueil" onClick={closeMenu}>
-        <Image src="/images/logo.png" alt="79events" width={64} height={60} priority className="site-header-logo" />
+        <Image src="/images/logo.png" alt="79events" width={92} height={86} priority className="site-header-logo" />
       </Link>
       <nav className="corporate-nav simple-desktop-nav" aria-label={locale === 'fr' ? 'Navigation principale' : 'Main navigation'}>
         {links.map((link) => <Link key={link.key} href={link.href}>{link.label}</Link>)}

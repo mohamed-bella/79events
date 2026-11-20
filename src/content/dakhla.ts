@@ -1,4 +1,4 @@
-export const heroImages = ['hero-event', 'wedding-beach', 'sports-event', 'gala-event', 'desert-dinner', 'conference-presentation'];
+export const heroImages = ['desert-dinner', 'gala-event', 'corporate-event', 'wedding-beach', 'private-dinner', 'conference-presentation'];
 
 export const dakhlaServices = [
   {title: "Mariages d'Exception", icon: 'heart', image: 'wedding-ceremony', lead: 'Cérémonies intimistes ou grandioses, entre dunes dorées et océan. Chaque mariage est une œuvre unique.', detail: 'De la plage dorée de Dakhla aux tentes berbères sous les étoiles, nous créons des mariages qui racontent votre histoire. Décoration florale sur-mesure, traiteur gastronomique, coordination jour-J — chaque détail est pensé pour que ce jour soit inoubliable.'},
