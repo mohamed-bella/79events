@@ -1116,7 +1116,7 @@ body:has(.landing-page) .site-footer .footer-project { display: none; }
 .editorial-hero-overlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgb(37 21 17 / 76%) 0%, rgb(37 21 17 / 44%) 42%, transparent 78%); }
 .editorial-hero-content { padding-block: 80px; }
 .editorial-kicker { margin: 0 0 16px; color: #f6dbca; font-size: 12px; font-weight: 700; letter-spacing: .21em; text-transform: uppercase; }
-.editorial-hero h1 { max-width: 720px; margin: 0 0 20px; color: white; font-family: var(--font-dm-sans), Arial, sans-serif; font-size: clamp(3rem, 5.5vw, 6rem); font-weight: 400; line-height: 1.06; letter-spacing: -.04em; text-wrap: balance; }
+.editorial-hero h1 { max-width: 720px; margin: 0 0 20px; color: white; font-family: var(--font-display-serif); font-size: clamp(3rem, 5.5vw, 6rem); font-weight: 500; line-height: 1.06; letter-spacing: -.04em; text-wrap: balance; }
 .editorial-hero-content > p:not(.editorial-kicker) { max-width: 440px; margin-bottom: 25px; color: #fff5ee; font-size: 16px; line-height: 1.65; }
 .editorial-button { min-width: 220px; justify-content: space-between; border-radius: 3px; background: #a64732 url('/images/terracotta-grain.svg') repeat; background-size: 180px; color: white; text-transform: uppercase; letter-spacing: .08em; }
 .editorial-categories { background: #f3e7dc; }
@@ -1141,7 +1141,7 @@ body:has(.landing-page) .site-footer .footer-project { display: none; }
 .editorial-featured-item > .photo-credit { bottom: 8px; }
 .editorial-work { padding-block: 55px; }
 .editorial-work-grid { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 2.3fr); align-items: center; gap: 38px; }
-.editorial-work-copy h2, .editorial-about-copy h2 { max-width: 420px; color: #793b2b; font-family: var(--font-dm-sans), Arial, sans-serif; font-size: clamp(2rem, 3.3vw, 3.8rem); font-weight: 400; line-height: 1.08; }
+.editorial-work-copy h2, .editorial-about-copy h2 { max-width: 420px; color: #793b2b; font-family: var(--font-display-serif); font-size: clamp(2rem, 3.3vw, 3.8rem); font-weight: 500; line-height: 1.08; }
 .editorial-work-copy > p:not(.eyebrow), .editorial-about-copy > p:not(.eyebrow) { max-width: 360px; color: var(--muted); font-size: 14px; line-height: 1.65; }
 .editorial-outline-link { display: inline-flex; min-height: 43px; align-items: center; justify-content: space-between; gap: 25px; padding: 9px 15px; border: 1px solid #9a6553; border-radius: 2px; color: #733d30; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .editorial-outline-link:hover { background: #9a4934; color: white; }
@@ -1158,7 +1158,7 @@ body:has(.landing-page) .site-footer .footer-project { display: none; }
 .editorial-about-words { display: flex; align-items: center; justify-content: center; padding: 30px; border-left: 1px solid #decfc3; color: #9e4b38; font-family: var(--font-dm-sans), Arial, sans-serif; font-size: clamp(1.3rem, 2vw, 2.2rem); font-style: italic; line-height: 1.8; transform: rotate(-8deg); }
 .editorial-contact { padding-block: 35px; background: #8f3d2b url('/images/terracotta-grain.svg') repeat; background-size: 180px; color: white; }
 .editorial-contact .container { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-.editorial-contact h2 { margin: 0 0 3px; color: white; font-family: var(--font-dm-sans), Arial, sans-serif; font-size: clamp(1.6rem, 2.6vw, 2.6rem); font-weight: 400; }
+.editorial-contact h2 { margin: 0 0 3px; color: white; font-family: var(--font-display-serif); font-size: clamp(1.6rem, 2.6vw, 2.6rem); font-weight: 500; }
 .editorial-contact p { margin: 0; color: #f4dcd0; font-size: 13px; }
 .editorial-contact .editorial-kicker { margin-bottom: 2px; font-size: 10px; }
 .editorial-contact .editorial-outline-link { flex: none; border-color: #f4dcd0; color: white; }

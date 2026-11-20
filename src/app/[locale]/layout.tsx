@@ -36,8 +36,8 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
   setRequestLocale(locale);
   const messages = await getMessages();
   return (
-      <html lang={locale} data-scroll-behavior="smooth">
-      <body className={`${dmSans.variable} ${cormorant.variable}`}>
+      <html lang={locale} className={`${dmSans.variable} ${cormorant.variable}`} data-scroll-behavior="smooth">
+      <body>
         <NextIntlClientProvider messages={messages}>
           <AnalyticsInteractions />
           <ScrollAnimations />

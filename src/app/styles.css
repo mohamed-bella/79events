@@ -26,7 +26,7 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
   line-height: 1.65;
 }
 .dakhla-home * { box-sizing: border-box; }
-.dakhla-home h1, .dakhla-home h2, .dakhla-home h3 { margin: 0; color: var(--dh-text); font-family: var(--font-dm-sans), Arial, sans-serif; font-weight: 500; letter-spacing: -.03em; line-height: 1.1; }
+.dakhla-home h1, .dakhla-home h2, .dakhla-home h3 { margin: 0; color: var(--dh-text); font-family: var(--font-display-serif); font-weight: 500; letter-spacing: -.03em; line-height: 1.1; }
 .dakhla-home p { margin-top: 0; }
 .dakhla-home a { color: inherit; text-decoration: none; }
 .dh-container { width: min(100% - 64px, 1152px); margin-inline: auto; }
