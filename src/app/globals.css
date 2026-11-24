@@ -477,6 +477,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); }
 
 /* Terracotta, warm ivory and deep brown identity. */
 :root {
+  --brand-rust: #8c3b1a;
   --ink: #36251f;
   --ocean: #a64732;
   --brass: #d99b76;
@@ -1226,9 +1227,9 @@ body:has(.editorial-home) .site-footer .footer-main { padding-block: 30px; }
   .site-footer .footer-brand-col, .site-footer .footer-contact-col { grid-column: 1 / -1; }
 }
 
-/* Terracotta canvas: warm surface, dark wine-brown anchors, ivory type. */
-body:has(.landing-page) { background: #a64732; }
-.landing-page { background: #a64732; color: #fff8f1; }
+/* Logo-derived rust canvas with ivory type. */
+body:has(.landing-page) { background: var(--brand-rust); }
+.landing-page { background: var(--brand-rust); color: #fff8f1; }
 .landing-page .landing-main { color: #fff8f1; }
 .landing-page .landing-feature { border-bottom-color: rgb(255 238 225 / 31%); }
 .landing-page .landing-feature h2,
@@ -1249,7 +1250,7 @@ body:has(.landing-page) { background: #a64732; }
 .landing-page .landing-email-contact { border-bottom-color: rgb(255 238 225 / 31%); }
 .landing-page .button-orange { background: #4b1d16; color: #fff8f1; }
 .landing-page .button-orange:hover { background: #2f110d; }
-.landing-page .landing-cta { background: #5c241b; }
+.landing-page .landing-cta { background: var(--brand-rust); }
 .landing-page .landing-cta .button { background: #fff8f1; color: #4b1d16; box-shadow: 0 4px 0 #3c160f, 0 10px 25px rgb(47 17 13 / 24%); }
 .landing-page .landing-cta .button:hover { background: #ffe8d8; }
 
