@@ -90,9 +90,7 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
 .dh-intro { max-width: 710px; margin: -36px auto 65px; color: var(--dh-muted); font-size: 13px; text-align: center; }
 .dh-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .dh-gallery-item { position: relative; aspect-ratio: 1.06; padding: 0; border: 0; background: #191512; cursor: pointer; overflow: hidden; }
-.dh-gallery-item::after { position: absolute; inset: 30% 0 0; background: linear-gradient(transparent, #0e0c0bc9); content: ''; opacity: 0; transition: opacity .3s ease; }
-.dh-gallery-item span { position: absolute; z-index: 1; right: 12px; bottom: 18px; left: 12px; color: white; font-family: var(--font-dm-sans), Arial, sans-serif; font-size: 27px; opacity: 0; transition: opacity .3s ease; }
-.dh-gallery-item:hover::after, .dh-gallery-item:focus-visible::after, .dh-gallery-item:hover span, .dh-gallery-item:focus-visible span { opacity: 1; }
+.dh-gallery-item:focus-visible { outline: 3px solid var(--dh-gold); outline-offset: 3px; }
 .dh-about-grid { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 70px; }
 .dh-about-copy { padding-left: 26px; }
 .dh-about-image { position: relative; aspect-ratio: 1.38; }
@@ -136,7 +134,6 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
 .dh-lightbox { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 60px; background: #000e; }
 .dh-lightbox img { position: relative !important; width: 100% !important; height: 100% !important; object-fit: contain; }
 .dh-lightbox > button { position: absolute; z-index: 1; top: 20px; right: 20px; border: 0; background: transparent; color: white; cursor: pointer; }
-.dh-lightbox p { position: absolute; bottom: 15px; margin: 0; color: white; font-family: var(--font-dm-sans), Arial, sans-serif; font-size: 25px; }
 
 @media (max-width: 900px) {
   .dh-service-cards, .dh-expertise-grid, .dh-reach-grid { grid-template-columns: repeat(2, 1fr); }
@@ -175,8 +172,6 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
   .dh-story-copy h3 { font-size: 34px; }
   .dh-gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .dh-gallery-item { aspect-ratio: .82; }
-  .dh-gallery-item span { opacity: 1; font-size: 17px; }
-  .dh-gallery-item::after { opacity: 1; }
   .dh-about-copy { padding-left: 0; }
   .dh-stats { gap: 7px; margin-top: 40px; }
   .dh-stats div { padding: 14px 5px; }
@@ -191,16 +186,6 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
   .dh-dots button, .dh-service-card, .dh-expertise-card, .dh-story-image img, .dh-gallery-item img { transition: none; }
 }
 
-.dh-gallery-item span {
-  right: auto;
-  bottom: 16px;
-  left: 16px;
-  max-width: calc(100% - 32px);
-  padding-left: 10px;
-  border-left: 2px solid #e29c73;
-  text-align: left;
-  line-height: 1.16;
-}
 .dh-lightbox > button {
   display: grid;
   width: 44px;
@@ -212,9 +197,6 @@ body:has(.dakhla-home) #main-content { min-height: 100vh; }
 }
 .dh-nav a { text-underline-offset: 6px; }
 .dh-nav a:is(:hover, :focus-visible) { text-decoration: underline; }
-@media (hover: none) {
-  .dh-gallery-item span, .dh-gallery-item::after { opacity: 1; }
-}
 @keyframes photo-open {
   from { opacity: 0; transform: scale(.985); }
   to { opacity: 1; transform: scale(1); }
@@ -288,7 +270,6 @@ body:has(.dakhla-home) { background: #6d2b20; }
 .dh-expertise-card { border-top-color: rgb(255 233 220 / 38%); }
 .dh-expertise-card:hover { border-color: var(--dh-gold); }
 .dh-gallery-item { background: #3b1711; }
-.dh-gallery-item::after { background: linear-gradient(transparent, rgb(47 17 13 / 88%)); }
 .dh-stats div { border-color: rgb(255 233 220 / 30%); background: #552117; }
 .dh-instagram-grid a { background: #4b1d16; }
 .dh-email-panel { border-color: rgb(255 233 220 / 32%); background: #552117; }
@@ -337,3 +318,38 @@ body:has(.dakhla-home) { background: #6d2b20; }
   .simple-site-header.is-scrolled .header-inner { min-height: 72px; }
   .simple-site-header.is-scrolled .site-header-logo { height: 64px; }
 }
+
+/* Keep the visible page canvas on one rust tone taken from the 79events logo. */
+body:has(.dakhla-home),
+body:has(.landing-page) { background: var(--brand-rust); }
+
+.dakhla-home {
+  --dh-bg: var(--brand-rust);
+  --dh-deep: var(--brand-rust);
+  --dh-card: var(--brand-rust);
+  --dh-terracotta: var(--brand-rust);
+  --dh-terracotta-deep: var(--brand-rust);
+  --dh-gold: #f1d0a7;
+}
+
+.dh-loader,
+.dh-hero,
+.dh-gallery-item,
+.dh-stats div,
+.dh-instagram-grid a,
+.dh-email-panel,
+.dh-footer,
+.dh-lightbox > button,
+.dh-service-card:hover { background: var(--brand-rust); }
+
+.dh-header.is-scrolled,
+.simple-site-header,
+.simple-site-header.is-scrolled,
+.simple-site-header .simple-mobile-menu { background: var(--brand-rust); }
+
+@media (max-width: 680px) {
+  .dh-nav { background-color: var(--brand-rust); }
+}
+
+.landing-page,
+.landing-cta { background: var(--brand-rust); }
