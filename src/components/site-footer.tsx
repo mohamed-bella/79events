@@ -16,7 +16,7 @@ export async function SiteFooter({locale}: {locale: Locale}) {
   return (
     <footer className="site-footer">
       <div className="footer-project container">
-        <div><p className="eyebrow eyebrow-light">Votre prochain événement</p><h2>Construisons votre projet ensemble.</h2></div>
+        <div><p className="eyebrow eyebrow-light">{t('projectEyebrow')}</p><h2>{t('projectTitle')}</h2></div>
         <Link className="button button-orange" href={pathFor(pages.proposal!, locale)}>{nav('proposal')}<ArrowUpRight size={17} aria-hidden="true" /></Link>
       </div>
       <div className="footer-main container">

@@ -18,6 +18,10 @@
     "menu": "Open navigation",
     "close": "Close navigation",
     "language": "Language",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "skipToContent": "Skip to content",
+    "switchTo": "Switch to {language}",
     "eventTypes": "Event formats",
     "support": "Planning support"
   },
@@ -78,7 +82,9 @@
     "rights": "All rights reserved.",
     "email": "Email",
     "phone": "Phone",
-    "location": "Operating across Morocco"
+    "location": "Operating across Morocco",
+    "projectEyebrow": "Your next event",
+    "projectTitle": "Let’s build the plan together."
   },
   "page": {
     "home": "Home",
@@ -91,6 +97,12 @@
     "ctaTitle": "A clear brief makes a stronger plan.",
     "ctaText": "Tell us what you know so far. We’ll help define the scope, city and next decision.",
     "ctaButton": "Request a proposal",
+    "formTitle": "Tell us about your event.",
+    "formBody": "Email us directly with your dates, city and the outline of your event.",
+    "emailButton": "Email 79events",
+    "proposalEmailSubject": "Event proposal request",
+    "contactEmailSubject": "Contact 79events",
+    "country": "Morocco",
     "steps": [
       {"title":"Define the brief","body":"Agree the purpose, audience, scope, decision owners and success measures."},
       {"title":"Build the delivery plan","body":"Map the venue, suppliers, production, guest journey, timing and budget dependencies."},
@@ -106,5 +118,116 @@
       "address": "Registered address",
       "founded": "Date founded"
     }
+  },
+  "legal": {
+    "label": "Legal information",
+    "registeredOffice": "Registered office",
+    "founded": "Founded",
+    "country": "Morocco"
+  },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "title": "This page is not available.",
+    "body": "The content may have moved or has not been published yet.",
+    "home": "Back to home"
+  },
+  "dakhla": {
+    "loader": "Loading 79events",
+    "loaderKicker": "Event design & production",
+    "navigation": {
+      "label": "Main navigation",
+      "home": "Home",
+      "services": "Services",
+      "gallery": "Gallery",
+      "about": "About",
+      "contact": "Contact",
+      "open": "Open menu",
+      "close": "Close menu"
+    },
+    "hero": {
+      "eyebrow": "Luxury event agency",
+      "title": "The art of",
+      "accent": "exclusivity",
+      "lead": "Bespoke experiences in the heart of the Sahara and Atlantic coast. Weddings, galas and launches — every detail is a signature.",
+      "previous": "Previous image",
+      "next": "Next image",
+      "chooseImage": "Choose an image",
+      "showImage": "Show image {number}",
+      "pause": "Pause slideshow",
+      "resume": "Resume slideshow",
+      "discover": "Discover"
+    },
+    "servicesEyebrow": "Our expertise",
+    "servicesTitle": "Services of",
+    "servicesAccent": "excellence",
+    "services": [
+      {"title":"Exceptional weddings","lead":"Intimate or grand ceremonies between golden dunes and the ocean. Every wedding is entirely unique.","detail":"From Atlantic beaches to Berber tents beneath the stars, we create weddings that tell your story. Bespoke florals, fine dining and day-of coordination — every detail is considered to make the day unforgettable."},
+      {"title":"Galas & private evenings","lead":"Evenings that stay with people. Scenography, entertainment and gastronomy — all orchestrated.","detail":"Our galas combine refinement with spectacle. Exclusive themes, international artists, cinematic staging and menus created by acclaimed chefs make a complete sensory experience for your most discerning guests."},
+      {"title":"Corporate events","lead":"Product launches, incentives, seminars, conferences and congresses. Excellence in service of your brand.","detail":"We turn business objectives into memorable experiences. Team building in the desert, conferences by the ocean and spectacular launches — Morocco’s landscapes amplify the impact of every event."},
+      {"title":"Sporting events","lead":"Competitions, ceremonies, fan zones and sporting experiences designed to bring audiences together.","detail":"We coordinate the site, teams, partners, signage and spectator experience for sporting events that are fluid, visible and memorable — from a private tournament to a major branded occasion."},
+      {"title":"Technical production","lead":"Sound, LED screens, structures, staging, lighting, show control, photography, video and streaming.","detail":"Our technical team deploys professional equipment of the latest generation: line-array sound systems, high-resolution LED walls, architectural and stage lighting, bespoke structures, multi-camera video control and live streaming."}
+    ],
+    "expertiseEyebrow": "Know-how",
+    "expertiseTitle": "Our",
+    "expertiseAccent": "expertise",
+    "expertise": [
+      {"title":"Full production","text":"From creative concept to final execution, we manage the complete event production chain with exacting care."},
+      {"title":"International logistics","text":"Multi-country coordination, transport, accommodation and visas — every logistical detail for guests from around the world."},
+      {"title":"Immersive scenography","text":"Our creative directors build unique sensory worlds that combine light, sound, set design and technology."},
+      {"title":"VIP coordination","text":"Personalised hosting, bespoke protocol and private concierge support for every distinguished guest."}
+    ],
+    "galleryEyebrow": "Portfolio",
+    "galleryTitle": "Our",
+    "galleryAccent": "work",
+    "galleryIntro": "Every event is a unique creation. Discover a selection of our most memorable work, from the Sahara to the Atlantic coast.",
+    "galleryItems": [
+      {"caption":"Wedding — Morocco’s Atlantic coast"},
+      {"caption":"Gala — private evening"},
+      {"caption":"Dinner — intimate experience"},
+      {"caption":"Corporate — desert event"},
+      {"caption":"Dinner — beneath the stars"},
+      {"caption":"Technical — sound & light"}
+    ],
+    "aboutEyebrow": "Our story",
+    "aboutTitle": "Excellence has an",
+    "aboutAccent": "address",
+    "about": {
+      "imageAlt": "Gala setting prepared by 79events",
+      "paragraphs": [
+        "For more than a decade, 79events has turned each project into an unforgettable experience in Morocco. Our intimate knowledge of the territory, combined with an international partner network, lets us create events that meet the highest expectations.",
+        "Every project is a close collaboration with our clients — luxury brands, royal families and Fortune 500 companies — to shape moments that rise above the ordinary.",
+        "Our multidisciplinary team — designers, scenographers, artistic directors and field coordinators — works as one to orchestrate every detail. From the first concept to final delivery, we protect the quality of the execution and the experience for every guest."
+      ],
+      "stats": {"events":"Events","years":"Years of excellence","custom":"Bespoke"}
+    },
+    "reachEyebrow": "Global reach",
+    "reachTitle": "International standards",
+    "reachAccent": "local mastery",
+    "reachIntro": "We combine international quality standards with deep knowledge of Morocco, giving clients the best of both worlds.",
+    "reach": [
+      {"title":"International reach","text":"Partners and suppliers across four continents for events without borders."},
+      {"title":"European standards","text":"Quality, safety and insurance standards aligned with international requirements."},
+      {"title":"Local excellence","text":"Deep local knowledge, skilled artisans and the living expertise of the Sahara."},
+      {"title":"Multilingual service","text":"French-, English- and Arabic-speaking teams for clear communication."}
+    ],
+    "instagramTitle": "Follow our",
+    "instagramAccent": "behind the scenes",
+    "instagramLink": "View on Instagram",
+    "gallery": {
+      "view": "View {caption}",
+      "viewOnInstagram": "View {caption} on Instagram"
+    },
+    "contactEyebrow": "Contact",
+    "contactTitle": "Begin your",
+    "contactAccent": "experience",
+    "contactKicker": "Your next event starts here",
+    "contactHeading": "Let’s speak directly by email.",
+    "contactBody": "Tell us your date, city and the broad idea for your event. Our 79events team will get back to you.",
+    "contactSubject": "Contact 79events",
+    "contactEmail": "Email",
+    "contactAddress": "Address",
+    "country": "Morocco",
+    "lightbox": {"close":"Close image"},
+    "rights": "All rights reserved."
   }
 }

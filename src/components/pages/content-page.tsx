@@ -17,7 +17,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
   const isAbout = page.key === 'about';
   const heroHref = isForm ? '#contact-email' : isLegal ? pathFor(contact, locale) : pathFor(proposal, locale);
   const heroLabel = isForm ? nav('contact') : isLegal ? nav('contact') : nav('proposal');
-  const emailSubject = page.kind === 'proposal' ? 'Demande de proposition événementielle' : 'Prise de contact avec 79events';
+  const emailSubject = page.kind === 'proposal' ? t('proposalEmailSubject') : t('contactEmailSubject');
   const emailHref = `mailto:${company.email}?subject=${encodeURIComponent(emailSubject)}`;
   const related = page.related.map(getPageByKey).filter((item): item is SitePage => Boolean(item?.published)).slice(0, 3);
   const steps = t.raw('steps') as {title:string; body:string}[];
@@ -29,7 +29,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
     <div className="landing-main container">
       <section className="landing-feature"><div className="landing-feature-copy"><p className="eyebrow">{copy.eyebrow}</p><h2>{t('intro')}</h2><p>{copy.intro}</p></div><div className="landing-feature-photo"><SiteImage photo={featurePhoto} sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
       <section className="landing-feature landing-feature-reverse"><div className="landing-feature-copy"><h2>{t('capabilities')}</h2><div className="landing-points">{copy.offerings.map((offer) => <p key={offer.title}><Check size={18} aria-hidden="true" /><span><strong>{offer.title}</strong><small>{offer.body}</small></span></p>)}</div></div><div className="landing-feature-photo"><SiteImage photo={relatedPhotos[0] ?? heroPhoto} sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
-      {isForm ? <section className="landing-email-contact" id="contact-email" data-scroll-reveal><div className="landing-email-copy"><p className="eyebrow">{nav('contact')}</p><h2>{locale === 'fr' ? 'Parlons de votre projet.' : 'Tell us about your event.'}</h2><p>{locale === 'fr' ? 'Écrivez-nous directement. Partagez les dates, la ville et les grandes lignes de votre événement dans votre propre e-mail.' : 'Email us directly with your dates, city and the outline of your event.'}</p></div><div className="landing-email-action"><a className="button button-dark" href={emailHref}>{locale === 'fr' ? 'Écrire à 79events' : 'Email 79events'}<ArrowUpRight size={17} aria-hidden="true" /></a><a className="landing-email-address" href={`mailto:${company.email}`}><Mail size={18} aria-hidden="true" />{company.email}</a></div></section> : <>
+      {isForm ? <section className="landing-email-contact" id="contact-email" data-scroll-reveal><div className="landing-email-copy"><p className="eyebrow">{nav('contact')}</p><h2>{t('formTitle')}</h2><p>{t('formBody')}</p></div><div className="landing-email-action"><a className="button button-dark" href={emailHref}>{t('emailButton')}<ArrowUpRight size={17} aria-hidden="true" /></a><a className="landing-email-address" href={`mailto:${company.email}`}><Mail size={18} aria-hidden="true" />{company.email}</a></div></section> : <>
         <section className="landing-feature"><div className="landing-feature-copy"><h2>{t('process')}</h2><div className="landing-points">{steps.map((step) => <p key={step.title}><Check size={18} aria-hidden="true" /><span><strong>{step.title}</strong><small>{step.body}</small></span></p>)}</div></div><div className="landing-feature-photo"><SiteImage photo={relatedPhotos[1] ?? featurePhoto} sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
         <section className="landing-feature landing-feature-reverse"><div className="landing-feature-copy"><p className="eyebrow"><CircleHelp size={16} aria-hidden="true" />{t('faq')}</p><h2>{t('faq')}</h2><div className="landing-points">{copy.faqs.map((item) => <p key={item.question}><Check size={18} aria-hidden="true" /><span><strong>{item.question}</strong><small>{item.answer}</small></span></p>)}</div></div><div className="landing-feature-photo"><SiteImage photo={relatedPhotos[2] ?? heroPhoto} sizes="(max-width: 700px) 100vw, 48vw" /></div></section>
         {isLegal && <p className="landing-legal-note">{copy.note}</p>}
@@ -41,7 +41,7 @@ export async function ContentPage({page, locale}: {page: SitePage; locale: Local
         <p className="company-details-intro">{t('companyDetails.intro')}</p>
         <dl className="company-details-grid">
           <div><dt>{t('companyDetails.legalName')}</dt><dd>{company.legalName}</dd></div>
-          <div><dt>{t('companyDetails.address')}</dt><dd>{company.postalAddress.streetAddress}<br />{company.postalAddress.addressLocality}, {locale === 'fr' ? 'Maroc' : 'Morocco'}</dd></div>
+          <div><dt>{t('companyDetails.address')}</dt><dd>{company.postalAddress.streetAddress}<br />{company.postalAddress.addressLocality}, {t('country')}</dd></div>
           {company.identifiers.map(({propertyID, value}) => <div key={propertyID}><dt>{propertyID}</dt><dd>{value}</dd></div>)}
           <div><dt>{t('companyDetails.founded')}</dt><dd>{company.foundingDate}</dd></div>
         </dl>

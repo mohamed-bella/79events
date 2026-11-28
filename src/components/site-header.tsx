@@ -6,6 +6,7 @@ import {useLocale, useTranslations} from 'next-intl';
 import {Menu, X} from 'lucide-react';
 import {Link} from '@/i18n/routing';
 import {getPageByKey, pathFor, type Locale} from '@/content/registry';
+import {LanguageSwitcher} from '@/components/language-switcher';
 
 const mainLinks = ['home', 'about', 'services', 'portfolio', 'contact'] as const;
 
@@ -43,15 +44,16 @@ export function SiteHeader() {
       <Link href="/" className="brand" aria-label="79events — accueil" onClick={closeMenu}>
         <Image src="/images/logo.png" alt="79events" width={92} height={86} priority className="site-header-logo" />
       </Link>
-      <nav className="corporate-nav simple-desktop-nav" aria-label={locale === 'fr' ? 'Navigation principale' : 'Main navigation'}>
+      <nav className="corporate-nav simple-desktop-nav" aria-label={t('mainNavigation')}>
         {links.map((link) => <Link key={link.key} href={link.href}>{link.label}</Link>)}
       </nav>
+      <LanguageSwitcher />
       <button ref={menuButton} className="menu-toggle" type="button" aria-label={menuOpen ? t('close') : t('menu')} aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => setMenuOpen((open) => !open)}>
         <span>{menuOpen ? t('close') : t('menu')}</span>{menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
       </button>
     </div>
-    <nav id="site-navigation" className={`site-menu simple-mobile-menu${menuOpen ? ' is-open' : ''}`} aria-label={locale === 'fr' ? 'Navigation mobile' : 'Mobile navigation'} aria-hidden={!menuOpen} inert={!menuOpen}>
-      <div className="container simple-mobile-links">{links.map((link) => <Link key={link.key} href={link.href} onClick={closeMenu}>{link.label}</Link>)}</div>
+    <nav id="site-navigation" className={`site-menu simple-mobile-menu${menuOpen ? ' is-open' : ''}`} aria-label={t('mobileNavigation')} aria-hidden={!menuOpen} inert={!menuOpen}>
+      <div className="container simple-mobile-links">{links.map((link) => <Link key={link.key} href={link.href} onClick={closeMenu}>{link.label}</Link>)}<LanguageSwitcher className="mobile-language-switcher" /></div>
     </nav>
   </header>;
 }

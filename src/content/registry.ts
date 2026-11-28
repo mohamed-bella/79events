@@ -1,6 +1,8 @@
 import {photoForPage} from './site-photos';
+import {spanishCopy} from './spanish-copy';
 
-export type Locale = 'en' | 'fr';
+export type Locale = 'en' | 'fr' | 'es';
+type SourceLocale = 'en' | 'fr';
 export type PageKind = 'hub' | 'event' | 'service' | 'location' | 'venues' | 'portfolio' | 'about' | 'contact' | 'proposal' | 'legal';
 
 export type Offer = {title: string; body: string};
@@ -33,14 +35,14 @@ const content = (
   en: Omit<LocalizedCopy, 'imageAlt'>,
   fr: Omit<LocalizedCopy, 'imageAlt'>,
   imageAlt: {en: string; fr: string},
-): Record<Locale, LocalizedCopy> => ({
+): Record<SourceLocale, LocalizedCopy> => ({
   en: {...en, imageAlt: imageAlt.en},
   fr: {...fr, imageAlt: imageAlt.fr},
 });
 
 // A route is public only when its copy and required proof are ready. This registry is
 // the single source for page resolution, navigation, metadata, alternates and sitemaps.
-const pages: Omit<SitePage, 'image'>[] = [
+const pages: (Omit<SitePage, 'image' | 'copy'> & {copy: Record<SourceLocale, LocalizedCopy>})[] = [
   {
     key: 'events', path: 'events', frPath: 'evenements', kind: 'hub', published: true, indexable: true,
 updatedAt: '2026-11-11', related: ['corporate-events', 'conferences', 'exhibitions', 'product-launches', 'team-building'],
@@ -269,6 +271,7 @@ updatedAt: '2026-11-11', related: ['corporate-events', 'conferences', 'exhibitio
 
 export const pageRegistry: SitePage[] = pages.map((page) => ({
   ...page,
+  copy: {...page.copy, es: spanishCopy[page.key] ?? page.copy.en},
   image: photoForPage(page.key).src,
 }));
 
@@ -297,7 +300,7 @@ export function getPageByKey(key: string) {
 }
 
 export function getPublishedPages(locale: Locale) {
-  return pageRegistry.filter((page) => page.published && (locale === 'en' ? page.path : page.frPath));
+  return pageRegistry.filter((page) => page.published && (locale === 'fr' ? page.frPath : page.path));
 }
 
 export function getHomePath() {

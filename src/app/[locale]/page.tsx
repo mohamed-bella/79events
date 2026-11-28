@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 import {hasLocale} from 'next-intl';
 import {DakhlaPage} from '@/components/pages/dakhla-page';
 import {routing} from '@/i18n/routing';
@@ -11,12 +12,12 @@ import type {Locale} from '@/content/registry';
 export async function generateMetadata({params}: {params:Promise<{locale:string}>}): Promise<Metadata> {
   const {locale:rawLocale} = await params;
   if (!hasLocale(routing.locales, rawLocale)) return {};
+  const locale = rawLocale as Locale;
+  const t = await getTranslations({locale, namespace:'metadata'});
   const path = '/';
-  const canonical = `${getSiteUrl()}${path}`;
   return {
-    ...pageMetadata({title:'79events — Agence Événementielle de Prestige au Maroc', description:'Des expériences sur-mesure au Maroc. Mariages, galas, lancements et événements corporate d’exception.', path, indexable:true}),
-    alternates:{canonical,languages:{fr:canonical,'x-default':canonical}},
-    openGraph:{type:'website',url:canonical,siteName:company.name,title:'79events — Agence Événementielle de Prestige au Maroc',description:'Des expériences sur-mesure au Maroc.',locale:'fr_FR'},
+    ...pageMetadata({title:t('homeTitle'), description:t('homeDescription'), path, indexable:true, locale}),
+    openGraph:{type:'website',url:`${getSiteUrl()}${locale === routing.defaultLocale ? '/' : `/${locale}`}`,siteName:company.name,title:t('homeOgTitle'),description:t('homeOgDescription'),locale:locale === 'es' ? 'es_ES' : locale === 'en' ? 'en_GB' : 'fr_FR'},
   };
 }
 

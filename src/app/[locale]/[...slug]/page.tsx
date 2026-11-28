@@ -11,7 +11,8 @@ export const dynamicParams = true;
 
 export function generateStaticParams({params}: {params:{locale:string; slug?:string[]}}) {
   if (!hasLocale(routing.locales, params.locale)) return [];
-  return getPublishedPages('fr').map((page) => ({slug:page.frPath.split('/')}));
+  const locale = params.locale as Locale;
+  return getPublishedPages(locale).map((page) => ({slug:(locale === 'fr' ? page.frPath : page.path).split('/')}));
 }
 
 export async function generateMetadata({params}: {params:Promise<{locale:string; slug:string[]}>}): Promise<Metadata> {

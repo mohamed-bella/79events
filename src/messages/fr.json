@@ -18,6 +18,10 @@
     "menu": "Ouvrir la navigation",
     "close": "Fermer la navigation",
     "language": "Langue",
+    "mainNavigation": "Navigation principale",
+    "mobileNavigation": "Navigation mobile",
+    "skipToContent": "Aller au contenu",
+    "switchTo": "Passer en {language}",
     "eventTypes": "Formats d’événements",
     "support": "Accompagnement"
   },
@@ -85,7 +89,9 @@
     "rights": "Tous droits réservés.",
     "email": "E-mail",
     "phone": "Téléphone",
-    "location": "Intervention dans tout le Maroc"
+    "location": "Intervention dans tout le Maroc",
+    "projectEyebrow": "Votre prochain événement",
+    "projectTitle": "Construisons votre projet ensemble."
   },
   "page": {
     "home": "Accueil",
@@ -98,6 +104,12 @@
     "ctaTitle": "Un projet bien défini permet un plan plus solide.",
     "ctaText": "Dites-nous ce que vous savez déjà. Nous vous aiderons à préciser le périmètre, la ville et la prochaine décision.",
     "ctaButton": "Demander une proposition",
+    "formTitle": "Parlons de votre projet.",
+    "formBody": "Écrivez-nous directement. Partagez les dates, la ville et les grandes lignes de votre événement.",
+    "emailButton": "Écrire à 79events",
+    "proposalEmailSubject": "Demande de proposition événementielle",
+    "contactEmailSubject": "Prise de contact avec 79events",
+    "country": "Maroc",
     "steps": [
       {"title":"Définir le projet","body":"Clarifier l’objectif, le public, le périmètre, les décideurs et les critères de réussite."},
       {"title":"Construire le plan de réalisation","body":"Relier le lieu, les prestataires, la production, le parcours invités, le calendrier et le budget."},
@@ -113,5 +125,116 @@
       "address": "Adresse du siège",
       "founded": "Date de création"
     }
+  },
+  "legal": {
+    "label": "Informations légales",
+    "registeredOffice": "Siège social",
+    "founded": "Création",
+    "country": "Maroc"
+  },
+  "notFound": {
+    "eyebrow": "Page introuvable",
+    "title": "Cette page n’est pas disponible.",
+    "body": "Le contenu demandé peut avoir été déplacé ou n’est pas encore publié.",
+    "home": "Retour à l’accueil"
+  },
+  "dakhla": {
+    "loader": "Chargement de 79events",
+    "loaderKicker": "Design et production événementiels",
+    "navigation": {
+      "label": "Navigation principale",
+      "home": "Accueil",
+      "services": "Services",
+      "gallery": "Galerie",
+      "about": "À propos",
+      "contact": "Contact",
+      "open": "Ouvrir le menu",
+      "close": "Fermer le menu"
+    },
+    "hero": {
+      "eyebrow": "Agence événementielle de prestige",
+      "title": "L'Art de l'",
+      "accent": "Exclusivité",
+      "lead": "Des expériences sur-mesure au cœur du Sahara et de l’Atlantique. Mariages, galas et lancements — chaque détail est une signature.",
+      "previous": "Image précédente",
+      "next": "Image suivante",
+      "chooseImage": "Choisir une image",
+      "showImage": "Afficher l'image {number}",
+      "pause": "Mettre le diaporama en pause",
+      "resume": "Reprendre le diaporama",
+      "discover": "Découvrir"
+    },
+    "servicesEyebrow": "Nos expertises",
+    "servicesTitle": "Des services d’",
+    "servicesAccent": "excellence",
+    "services": [
+      {"title":"Mariages d’exception","lead":"Cérémonies intimistes ou grandioses, entre dunes dorées et océan. Chaque mariage est une œuvre unique.","detail":"Des plages de l’Atlantique aux tentes berbères sous les étoiles, nous créons des mariages qui racontent votre histoire. Décoration florale sur-mesure, traiteur gastronomique et coordination du jour J — chaque détail est pensé pour rendre ce jour inoubliable."},
+      {"title":"Galas et soirées privées","lead":"Des soirées qui marquent les esprits. Scénographie, entertainment et gastronomie — tout est orchestré.","detail":"Nos galas associent raffinement et spectacle. Thématiques exclusives, artistes internationaux, mises en scène cinématographiques et menus de chefs reconnus composent une expérience sensorielle complète pour vos invités les plus exigeants."},
+      {"title":"Événements corporate","lead":"Lancements de produits, incentives, séminaires, conférences et congrès. L’excellence au service de votre marque.","detail":"Nous transformons vos objectifs business en expériences mémorables. Team building dans le désert, conférences face à l’océan et lancements spectaculaires — les paysages du Maroc amplifient l’impact de chaque événement."},
+      {"title":"Événements sportifs","lead":"Compétitions, cérémonies, fan zones et expériences sportives conçues pour rassembler les publics.","detail":"Nous coordonnons le site, les équipes, les partenaires, la signalétique et l’expérience spectateur pour des événements sportifs fluides, visibles et mémorables — du tournoi privé au grand rendez-vous de marque."},
+      {"title":"Production technique","lead":"Sonorisation, écrans LED, structures, scène, éclairage, régie, photo, vidéo et streaming.","detail":"Notre équipe technique déploie un matériel professionnel de dernière génération : sonorisation line array, murs LED haute résolution, éclairages architecturaux et scéniques, structures sur-mesure, régie vidéo multicaméra et diffusion live."}
+    ],
+    "expertiseEyebrow": "Savoir-faire",
+    "expertiseTitle": "Notre",
+    "expertiseAccent": "expertise",
+    "expertise": [
+      {"title":"Production complète","text":"De la conception créative à l’exécution finale, nous gérons l’intégralité de la chaîne de production événementielle avec précision."},
+      {"title":"Logistique internationale","text":"Coordination multi-pays, transport, hébergement et visas — nous orchestrons chaque aspect logistique pour vos invités du monde entier."},
+      {"title":"Scénographie immersive","text":"Nos directeurs artistiques créent des univers sensoriels uniques, mêlant lumière, son, décor et technologie."},
+      {"title":"Coordination VIP","text":"Accueil personnalisé, protocole sur-mesure et conciergerie privée pour chaque invité de marque."}
+    ],
+    "galleryEyebrow": "Portfolio",
+    "galleryTitle": "Nos",
+    "galleryAccent": "réalisations",
+    "galleryIntro": "Chaque événement est une création unique. Découvrez une sélection de nos réalisations les plus marquantes, du Sahara à l’Atlantique.",
+    "galleryItems": [
+      {"caption":"Mariage — côte atlantique du Maroc"},
+      {"caption":"Gala — soirée privée"},
+      {"caption":"Dîner — expérience intime"},
+      {"caption":"Corporate — événement dans le désert"},
+      {"caption":"Dîner — sous les étoiles"},
+      {"caption":"Technique — son et lumière"}
+    ],
+    "gallery": {
+      "view": "Voir {caption}",
+      "viewOnInstagram": "Voir {caption} sur Instagram"
+    },
+    "aboutEyebrow": "Notre histoire",
+    "aboutTitle": "L’excellence a une",
+    "aboutAccent": "adresse",
+    "about": {
+      "imageAlt": "Décor de gala préparé par 79events",
+      "paragraphs": [
+        "Depuis plus d’une décennie, 79events transforme chaque projet en expérience inoubliable au Maroc. Notre connaissance intime du territoire, combinée à un réseau de partenaires internationaux, nous permet de créer des événements à la hauteur des plus grandes exigences.",
+        "Chaque projet est une collaboration étroite avec nos clients — marques de luxe, familles royales et entreprises du Fortune 500 — pour concevoir des moments qui transcendent l’ordinaire.",
+        "Notre équipe pluridisciplinaire — designers, scénographes, directeurs artistiques et coordinateurs terrain — travaille en synergie pour orchestrer chaque détail. Du concept initial à la réalisation finale, nous garantissons une exécution irréprochable et une expérience qui dépasse les attentes."
+      ],
+      "stats": {"events":"Événements","years":"Années d’excellence","custom":"Sur-mesure"}
+    },
+    "reachEyebrow": "Rayonnement international",
+    "reachTitle": "Standards internationaux",
+    "reachAccent": "maîtrise locale",
+    "reachIntro": "Nous combinons les standards de qualité internationaux avec une connaissance profonde du Maroc, pour offrir le meilleur des deux mondes.",
+    "reach": [
+      {"title":"Portée internationale","text":"Partenaires et fournisseurs sur quatre continents pour des événements sans frontières."},
+      {"title":"Standards européens","text":"Normes de qualité, de sécurité et d’assurance conformes aux exigences internationales."},
+      {"title":"Excellence locale","text":"Connaissance intime du terrain, artisans locaux et savoir-faire vivant du Sahara."},
+      {"title":"Service multilingue","text":"Des équipes francophones, anglophones et arabophones pour une communication fluide."}
+    ],
+    "instagramTitle": "Suivez nos",
+    "instagramAccent": "coulisses",
+    "instagramLink": "Voir sur Instagram",
+    "contactEyebrow": "Contact",
+    "contactTitle": "Commencez votre",
+    "contactAccent": "expérience",
+    "contactKicker": "Votre prochain événement commence ici",
+    "contactHeading": "Échangeons directement par e-mail.",
+    "contactBody": "Décrivez votre date, votre ville et l’idée générale de votre événement. Notre équipe 79events vous répondra.",
+    "contactSubject": "Prise de contact avec 79events",
+    "contactEmail": "E-mail",
+    "contactAddress": "Adresse",
+    "country": "Maroc",
+    "lightbox": {"close":"Fermer l’image"},
+    "rights": "Tous droits réservés."
   }
 }

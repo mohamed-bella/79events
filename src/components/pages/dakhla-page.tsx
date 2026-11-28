@@ -2,7 +2,9 @@
 
 import {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 import {FooterLegalDetails} from '@/components/footer-legal-details';
+import {LanguageSwitcher} from '@/components/language-switcher';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {useGSAP} from '@gsap/react';
@@ -28,14 +30,6 @@ const icons = {
 
 type IconName = keyof typeof icons;
 
-const navigation = [
-  ['Accueil', '#hero'],
-  ['Services', '#services'],
-  ['Galerie', '#gallery'],
-  ['À Propos', '#about'],
-  ['Contact', '#contact'],
-];
-
 function GoldIcon({name, size = 29}: {name: IconName; size?: number}) {
   const Icon = icons[name];
   return <Icon size={size} strokeWidth={1.35} aria-hidden="true" />;
@@ -52,6 +46,7 @@ function Heading({eyebrow, title, accent}: {eyebrow: string; title: string; acce
 }
 
 export function DakhlaPage() {
+  const t = useTranslations('dakhla');
   const pageRef = useRef<HTMLElement>(null);
   const slidesRef = useRef<HTMLDivElement>(null);
   const activeSlide = useRef(0);
@@ -62,6 +57,11 @@ export function DakhlaPage() {
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const services = t.raw('services') as {title: string; lead: string; detail: string}[];
+  const expertise = t.raw('expertise') as {title: string; text: string}[];
+  const gallery = t.raw('galleryItems') as {caption: string}[];
+  const reach = t.raw('reach') as {title: string; text: string}[];
+  const aboutParagraphs = t.raw('about.paragraphs') as string[];
 
   useEffect(() => {
     const loaderTimer = window.setTimeout(() => setIsLoading(false), 850);
@@ -141,10 +141,10 @@ export function DakhlaPage() {
 
   return (
     <main ref={pageRef} className="dakhla-home" aria-busy={isLoading}>
-      <div className={`dh-loader${isLoading ? ' is-visible' : ' is-hidden'}`} role="status" aria-label="Chargement de 79events" aria-hidden={!isLoading}>
+      <div className={`dh-loader${isLoading ? ' is-visible' : ' is-hidden'}`} role="status" aria-label={t('loader')} aria-hidden={!isLoading}>
         <div className="dh-loader-content">
           <Image src="/images/logo.png" alt="79events" width={220} height={210} priority className="dh-loader-logo" />
-          <span className="dh-loader-kicker">Event design &amp; production</span>
+          <span className="dh-loader-kicker">{t('loaderKicker')}</span>
           <span className="dh-loader-progress" aria-hidden="true"><span /></span>
         </div>
       </div>
@@ -152,12 +152,15 @@ export function DakhlaPage() {
         <a className="dh-brand" href="#hero" aria-label="79events - accueil">
           <Image src="/images/logo.png" alt="79events" width={72} height={68} priority className="dh-logo" />
         </a>
-        <nav className={menuOpen ? 'dh-nav is-open' : 'dh-nav'} aria-label="Navigation principale">
-          {navigation.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
+        <nav className={menuOpen ? 'dh-nav is-open' : 'dh-nav'} aria-label={t('navigation.label')}>
+          {[['home', '#hero'], ['services', '#services'], ['gallery', '#gallery'], ['about', '#about'], ['contact', '#contact']].map(([key, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{t(`navigation.${key}`)}</a>)}
         </nav>
-        <button className="dh-menu" type="button" aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="dh-header-actions">
+          <LanguageSwitcher className="dakhla-language-switcher" />
+          <button className="dh-menu" type="button" aria-label={menuOpen ? t('navigation.close') : t('navigation.open')} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </header>
 
       <section className="dh-hero" id="hero">
@@ -168,42 +171,42 @@ export function DakhlaPage() {
         </div>
         <div className="dh-hero-shade" />
         <div className="dh-hero-content">
-          <p>Agence événementielle de prestige</p>
-          <h1>L&apos;Art de l&apos;<em>Exclusivité</em></h1>
+          <p>{t('hero.eyebrow')}</p>
+          <h1>{t('hero.title')} <em>{t('hero.accent')}</em></h1>
           <span className="dh-wide-rule" aria-hidden="true" />
-          <p className="dh-hero-lead">Des expériences sur-mesure au cœur du Sahara et de l&apos;Atlantique.<br />Mariages, galas, lancements — chaque détail est une signature.</p>
+          <p className="dh-hero-lead">{t('hero.lead')}</p>
         </div>
         <div className="dh-slider-controls">
-          <button className="dh-slider-arrow" type="button" onClick={() => setSlide((current) => (current - 1 + heroImages.length) % heroImages.length)} aria-label="Image précédente"><ChevronLeft size={18} /></button>
-          <div className="dh-dots" aria-label="Choisir une image">
-            {heroImages.map((name, index) => <button key={name} className={index === slide ? 'is-active' : ''} type="button" onClick={() => setSlide(index)} aria-label={`Afficher l'image ${index + 1}`} aria-current={index === slide ? 'true' : undefined} />)}
+          <button className="dh-slider-arrow" type="button" onClick={() => setSlide((current) => (current - 1 + heroImages.length) % heroImages.length)} aria-label={t('hero.previous')}><ChevronLeft size={18} /></button>
+          <div className="dh-dots" aria-label={t('hero.chooseImage')}>
+            {heroImages.map((name, index) => <button key={name} className={index === slide ? 'is-active' : ''} type="button" onClick={() => setSlide(index)} aria-label={t('hero.showImage', {number: index + 1})} aria-current={index === slide ? 'true' : undefined} />)}
           </div>
-          <button className="dh-slider-arrow" type="button" onClick={() => setSlide((current) => (current + 1) % heroImages.length)} aria-label="Image suivante"><ChevronRight size={18} /></button>
-          <button className="dh-slider-play" type="button" onClick={() => setIsPaused((paused) => !paused)} aria-label={isPaused ? 'Reprendre le diaporama' : 'Mettre le diaporama en pause'} aria-pressed={isPaused}>{isPaused ? <Play size={14} /> : <Pause size={14} />}</button>
+          <button className="dh-slider-arrow" type="button" onClick={() => setSlide((current) => (current + 1) % heroImages.length)} aria-label={t('hero.next')}><ChevronRight size={18} /></button>
+          <button className="dh-slider-play" type="button" onClick={() => setIsPaused((paused) => !paused)} aria-label={isPaused ? t('hero.resume') : t('hero.pause')} aria-pressed={isPaused}>{isPaused ? <Play size={14} /> : <Pause size={14} />}</button>
         </div>
-        <a className="dh-discover" href="#services">Découvrir</a>
+        <a className="dh-discover" href="#services">{t('hero.discover')}</a>
       </section>
 
       <section className="dh-services" id="services"><div className="dh-container">
-        <Heading eyebrow="Nos Expertises" title="Des Services d&apos;" accent="Excellence" />
-        <div className="dh-service-cards">{dakhlaServices.map(({title, icon, lead}, index) => <a className="dh-service-card dh-reveal" href={`#service-${index}`} key={title}><GoldIcon name={icon} /><h3>{title}</h3><p>{lead}</p></a>)}</div>
-        <div className="dh-service-stories">{dakhlaServices.map(({title, icon, image, lead, detail}, index) => <article className={`dh-story dh-reveal${index % 2 ? ' is-reversed' : ''}`} id={`service-${index}`} key={title}><div className="dh-story-image"><Image src={pexelsImage(image)} alt={title} fill sizes="(max-width: 760px) 100vw, 48vw" /></div><div className="dh-story-copy"><GoldIcon name={icon} /><h3>{title}</h3><span className="dh-short-rule" aria-hidden="true" /><p>{lead}</p><p>{detail}</p></div></article>)}</div>
+        <Heading eyebrow={t('servicesEyebrow')} title={t('servicesTitle')} accent={t('servicesAccent')} />
+        <div className="dh-service-cards">{dakhlaServices.map(({icon}, index) => { const service = services[index]; return <a className="dh-service-card dh-reveal" href={`#service-${index}`} key={service.title}><GoldIcon name={icon as IconName} /><h3>{service.title}</h3><p>{service.lead}</p></a>; })}</div>
+        <div className="dh-service-stories">{dakhlaServices.map(({icon, image}, index) => { const service = services[index]; return <article className={`dh-story dh-reveal${index % 2 ? ' is-reversed' : ''}`} id={`service-${index}`} key={image}><div className="dh-story-image"><Image src={pexelsImage(image)} alt={service.title} fill sizes="(max-width: 760px) 100vw, 48vw" /></div><div className="dh-story-copy"><GoldIcon name={icon as IconName} /><h3>{service.title}</h3><span className="dh-short-rule" aria-hidden="true" /><p>{service.lead}</p><p>{service.detail}</p></div></article>; })}</div>
       </div></section>
 
-      <section className="dh-expertise"><div className="dh-container"><Heading eyebrow="Savoir-Faire" title="Notre" accent="Expertise" /><div className="dh-expertise-grid">{dakhlaExpertise.map(({title, icon, text}) => <article className="dh-expertise-card dh-reveal" key={title}><span><GoldIcon name={icon} /></span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+      <section className="dh-expertise"><div className="dh-container"><Heading eyebrow={t('expertiseEyebrow')} title={t('expertiseTitle')} accent={t('expertiseAccent')} /><div className="dh-expertise-grid">{dakhlaExpertise.map(({icon}, index) => { const item = expertise[index]; return <article className="dh-expertise-card dh-reveal" key={item.title}><span><GoldIcon name={icon as IconName} /></span><h3>{item.title}</h3><p>{item.text}</p></article>; })}</div></div></section>
 
-      <section className="dh-gallery-section" id="gallery"><div className="dh-container"><Heading eyebrow="Portfolio" title="Nos" accent="Réalisations" /><p className="dh-intro dh-reveal">Chaque événement est une création unique. Découvrez quelques-unes de nos réalisations les plus marquantes, du Sahara à l&apos;Atlantique.</p><div className="dh-gallery">{dakhlaGallery.map(({image, caption}, index) => <button className="dh-gallery-item dh-reveal" key={image} type="button" onClick={() => setSelected(index)} aria-label={`Voir ${caption}`}><Image src={pexelsImage(image)} alt={caption} fill sizes="(max-width: 700px) 50vw, 33vw" /></button>)}</div></div></section>
+      <section className="dh-gallery-section" id="gallery"><div className="dh-container"><Heading eyebrow={t('galleryEyebrow')} title={t('galleryTitle')} accent={t('galleryAccent')} /><p className="dh-intro dh-reveal">{t('galleryIntro')}</p><div className="dh-gallery">{dakhlaGallery.map(({image}, index) => <button className="dh-gallery-item dh-reveal" key={image} type="button" onClick={() => setSelected(index)} aria-label={t('gallery.view', {caption: gallery[index].caption})}><Image src={pexelsImage(image)} alt={gallery[index].caption} fill sizes="(max-width: 700px) 50vw, 33vw" /></button>)}</div></div></section>
 
-      <section className="dh-about" id="about"><div className="dh-container"><Heading eyebrow="Notre Histoire" title="L&apos;Excellence a une" accent="Adresse" /><div className="dh-about-grid"><div className="dh-about-copy dh-reveal"><span className="dh-short-rule" aria-hidden="true" /><p>Depuis plus d&apos;une décennie, 79events transforme chaque projet en scène d&apos;expériences inoubliables au Maroc. Notre connaissance intime du territoire, combinée à un réseau de partenaires internationaux, nous permet de créer des événements à la hauteur des plus grandes exigences.</p><p>Chaque projet est une collaboration étroite avec nos clients — marques de luxe, familles royales, entreprises du Fortune 500 — pour concevoir des moments qui transcendent l&apos;ordinaire.</p><p>Notre équipe pluridisciplinaire — designers, scénographes, directeurs artistiques et coordinateurs terrain — travaille en synergie pour orchestrer chaque détail. Du concept initial à la réalisation finale, nous garantissons une exécution irréprochable et une expérience qui dépasse toutes les attentes.</p></div><div className="dh-about-image dh-reveal"><Image src={pexelsImage('gala-event')} alt="Décor de gala préparé par 79events" fill sizes="(max-width: 760px) 100vw, 48vw" /></div></div><div className="dh-stats dh-reveal"><div><strong>150+</strong><span>Événements</span></div><div><strong>12</strong><span>Années d&apos;Excellence</span></div><div><strong>100%</strong><span>Sur-Mesure</span></div></div></div></section>
+      <section className="dh-about" id="about"><div className="dh-container"><Heading eyebrow={t('aboutEyebrow')} title={t('aboutTitle')} accent={t('aboutAccent')} /><div className="dh-about-grid"><div className="dh-about-copy dh-reveal"><span className="dh-short-rule" aria-hidden="true" />{aboutParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div><div className="dh-about-image dh-reveal"><Image src={pexelsImage('gala-event')} alt={t('about.imageAlt')} fill sizes="(max-width: 760px) 100vw, 48vw" /></div></div><div className="dh-stats dh-reveal"><div><strong>150+</strong><span>{t('about.stats.events')}</span></div><div><strong>12</strong><span>{t('about.stats.years')}</span></div><div><strong>100%</strong><span>{t('about.stats.custom')}</span></div></div></div></section>
 
-      <section className="dh-reach"><div className="dh-container"><Heading eyebrow="Global Reach" title="International Standards —" accent="Local Mastery" /><p className="dh-intro dh-reveal">Nous combinons les standards de qualité internationaux avec une maîtrise inégalée du territoire marocain, offrant à nos clients le meilleur des deux mondes.</p><div className="dh-reach-grid">{dakhlaReach.map(({title, icon, text}) => <article className="dh-reveal" key={title}><GoldIcon name={icon} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+      <section className="dh-reach"><div className="dh-container"><Heading eyebrow={t('reachEyebrow')} title={t('reachTitle')} accent={t('reachAccent')} /><p className="dh-intro dh-reveal">{t('reachIntro')}</p><div className="dh-reach-grid">{dakhlaReach.map(({icon}, index) => { const item = reach[index]; return <article className="dh-reveal" key={item.title}><GoldIcon name={icon as IconName} /><h3>{item.title}</h3><p>{item.text}</p></article>; })}</div></div></section>
 
-      <section className="dh-instagram"><div className="dh-container"><Camera size={29} strokeWidth={1.3} aria-hidden="true" /><Heading eyebrow="@79events" title="Suivez nos" accent="Coulisses" /><div className="dh-instagram-grid">{dakhlaGallery.map(({image, caption}) => <a href="https://www.instagram.com/79events/" target="_blank" rel="noopener noreferrer" aria-label={`Voir ${caption} sur Instagram`} key={image}><Image src={pexelsImage(image)} alt="" fill sizes="(max-width: 680px) 32vw, 16vw" /></a>)}</div><a href="https://www.instagram.com/79events/" target="_blank" rel="noopener noreferrer">Voir sur Instagram</a></div></section>
+      <section className="dh-instagram"><div className="dh-container"><Camera size={29} strokeWidth={1.3} aria-hidden="true" /><Heading eyebrow="@79events" title={t('instagramTitle')} accent={t('instagramAccent')} /><div className="dh-instagram-grid">{dakhlaGallery.map(({image}, index) => <a href="https://www.instagram.com/79events/" target="_blank" rel="noopener noreferrer" aria-label={t('gallery.viewOnInstagram', {caption: gallery[index].caption})} key={image}><Image src={pexelsImage(image)} alt="" fill sizes="(max-width: 680px) 32vw, 16vw" /></a>)}</div><a href="https://www.instagram.com/79events/" target="_blank" rel="noopener noreferrer">{t('instagramLink')}</a></div></section>
 
-      <section className="dh-contact" id="contact"><div className="dh-container"><Heading eyebrow="Contact" title="Begin Your" accent="Experience" /><div className="dh-contact-grid"><div className="dh-email-panel dh-reveal"><Mail size={32} aria-hidden="true" /><p className="dh-email-kicker">Votre prochain événement commence ici</p><h3>Échangeons directement par e-mail.</h3><p>Décrivez votre date, votre ville et l&apos;idée générale de votre événement. Nous vous répondrons depuis notre équipe 79events.</p><a className="dh-email-link" href="mailto:contact@79events.com?subject=Prise%20de%20contact%20avec%2079events">contact@79events.com <ExternalLink size={15} aria-hidden="true" /></a></div><div className="dh-contact-details dh-reveal"><a href="mailto:contact@79events.com"><Mail size={21} /><span><small>Email</small>contact@79events.com</span></a><div><span><small>Adresse</small>Ouarzazate, Maroc</span></div></div></div></div></section>
+      <section className="dh-contact" id="contact"><div className="dh-container"><Heading eyebrow={t('contactEyebrow')} title={t('contactTitle')} accent={t('contactAccent')} /><div className="dh-contact-grid"><div className="dh-email-panel dh-reveal"><Mail size={32} aria-hidden="true" /><p className="dh-email-kicker">{t('contactKicker')}</p><h3>{t('contactHeading')}</h3><p>{t('contactBody')}</p><a className="dh-email-link" href={`mailto:contact@79events.com?subject=${encodeURIComponent(t('contactSubject'))}`}>contact@79events.com <ExternalLink size={15} aria-hidden="true" /></a></div><div className="dh-contact-details dh-reveal"><a href="mailto:contact@79events.com"><Mail size={21} /><span><small>{t('contactEmail')}</small>contact@79events.com</span></a><div><span><small>{t('contactAddress')}</small>Ouarzazate, {t('country')}</span></div></div></div></div></section>
 
-      <footer className="dh-footer"><a className="dh-brand" href="#hero" aria-label="79events"><Image src="/images/logo.png" alt="79events" width={90} height={85} className="dh-footer-logo" /></a><span className="dh-short-rule" aria-hidden="true" /><a className="dh-footer-email" href="mailto:contact@79events.com"><Mail size={15} aria-hidden="true" />contact@79events.com</a><div className="dh-social-links"><a href="https://www.instagram.com/79events/" aria-label="Instagram"><Camera size={16} aria-hidden="true" />Instagram</a><a href="https://www.facebook.com/79events"><ExternalLink size={14} aria-hidden="true" />Facebook</a><a href="https://www.youtube.com/@79events"><ExternalLink size={14} aria-hidden="true" />YouTube</a><a href="https://www.tiktok.com/@79events"><ExternalLink size={14} aria-hidden="true" />TikTok</a></div><FooterLegalDetails /><p>© {new Date().getFullYear()} 79events. Tous droits réservés.</p></footer>
-      {selected !== null && <div className="dh-lightbox" role="dialog" aria-modal="true" aria-label={dakhlaGallery[selected].caption} onClick={() => setSelected(null)}><button type="button" aria-label="Fermer" onClick={() => setSelected(null)}><X size={24} /></button><Image src={pexelsImage(dakhlaGallery[selected].image)} alt={dakhlaGallery[selected].caption} fill sizes="90vw" /></div>}
+      <footer className="dh-footer"><a className="dh-brand" href="#hero" aria-label="79events"><Image src="/images/logo.png" alt="79events" width={90} height={85} className="dh-footer-logo" /></a><span className="dh-short-rule" aria-hidden="true" /><a className="dh-footer-email" href="mailto:contact@79events.com"><Mail size={15} aria-hidden="true" />contact@79events.com</a><div className="dh-social-links"><a href="https://www.instagram.com/79events/" aria-label="Instagram"><Camera size={16} aria-hidden="true" />Instagram</a><a href="https://www.facebook.com/79events"><ExternalLink size={14} aria-hidden="true" />Facebook</a><a href="https://www.youtube.com/@79events"><ExternalLink size={14} aria-hidden="true" />YouTube</a><a href="https://www.tiktok.com/@79events"><ExternalLink size={14} aria-hidden="true" />TikTok</a></div><FooterLegalDetails /><p>© {new Date().getFullYear()} 79events. {t('rights')}</p></footer>
+      {selected !== null && <div className="dh-lightbox" role="dialog" aria-modal="true" aria-label={gallery[selected].caption} onClick={() => setSelected(null)}><button type="button" aria-label={t('lightbox.close')} onClick={() => setSelected(null)}><X size={24} /></button><Image src={pexelsImage(dakhlaGallery[selected].image)} alt={gallery[selected].caption} fill sizes="90vw" /></div>}
     </main>
   );
 }

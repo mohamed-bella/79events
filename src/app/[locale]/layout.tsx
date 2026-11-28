@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {hasLocale} from 'next-intl';
 import {Cormorant_Garamond, DM_Sans} from 'next/font/google';
 import {ArrowUpRight} from 'lucide-react';
@@ -12,6 +12,7 @@ import {AnalyticsInteractions} from '@/components/analytics-interactions';
 import {ScrollAnimations} from '@/components/scroll-animations';
 import {Link} from '@/i18n/routing';
 import {company, getSiteUrl} from '@/lib/company';
+import type {Locale} from '@/content/registry';
 import '../globals.css';
 import '../styles.css';
 
@@ -35,17 +36,18 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages();
+  const nav = await getTranslations({locale, namespace:'nav'});
   return (
       <html lang={locale} className={`${dmSans.variable} ${cormorant.variable}`} data-scroll-behavior="smooth">
       <body>
         <NextIntlClientProvider messages={messages}>
           <AnalyticsInteractions />
           <ScrollAnimations />
-          <a className="skip-link" href="#main-content">Passer au contenu</a>
+          <a className="skip-link" href="#main-content">{nav('skipToContent')}</a>
           <SiteHeader />
           {children}
-          <SiteFooter locale={locale as 'en' | 'fr'} />
-          <Link className="floating-contact" href="/contact" aria-label="Nous contacter"><span aria-hidden="true"><ArrowUpRight size={18} /></span><span>Contact</span></Link>
+          <SiteFooter locale={locale as Locale} />
+          <Link className="floating-contact" href="/contact" aria-label={nav('contact')}><span aria-hidden="true"><ArrowUpRight size={18} /></span><span>{nav('contact')}</span></Link>
         </NextIntlClientProvider>
       </body>
     </html>

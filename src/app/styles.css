@@ -290,6 +290,8 @@ body:has(.dakhla-home) { background: #6d2b20; }
   .dh-nav a { min-height: 48px; border-bottom: 1px solid rgb(255 233 220 / 16%); color: #fff8f1; text-shadow: none; }
   .dh-nav a:last-child { border-bottom: 0; }
   .dh-nav a:hover, .dh-nav a:focus-visible { background: rgb(166 71 50 / 28%); color: #ffe9dc; }
+  .dakhla-language-switcher .language-switcher-label { display: none; }
+  .dakhla-language-switcher .language-switcher-options a { min-width: 29px; min-height: 26px; }
   .dh-logo { height: 68px; }
   .dh-header.is-scrolled .dh-logo { height: 56px; }
 }
@@ -305,11 +307,23 @@ body:has(.dakhla-home) { background: #6d2b20; }
 .simple-site-header.is-scrolled { border-bottom-color: rgb(255 233 220 / 22%); background: rgb(75 29 22 / 96%); box-shadow: 0 8px 25px rgb(47 17 13 / 26%); }
 .simple-site-header.is-scrolled .header-inner { min-height: 86px; }
 .simple-site-header.is-scrolled .site-header-logo { height: 72px; }
+.language-switcher { display: inline-flex; align-items: center; gap: 10px; color: #fff8f1; white-space: nowrap; }
+.language-switcher-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.language-switcher-options { display: inline-flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid rgb(255 233 220 / 34%); border-radius: 999px; }
+.language-switcher-options a { display: inline-flex; min-width: 32px; min-height: 28px; align-items: center; justify-content: center; border-radius: 999px; color: inherit; font-size: 10px; font-weight: 750; letter-spacing: .08em; text-decoration: none; transition: background-color .18s ease, color .18s ease; }
+.language-switcher-options a:hover, .language-switcher-options a:focus-visible { background: rgb(255 233 220 / 18%); color: #ffe0b8; }
+.language-switcher-options a.is-active { background: #fff8f1; color: var(--brand-rust); }
+.mobile-language-switcher { display: none; }
+.dh-header-actions { display: inline-flex; align-items: center; gap: 14px; }
+.dakhla-language-switcher { color: #fff8f1; text-shadow: 0 2px 12px rgb(47 17 13 / 60%); }
+.dakhla-language-switcher .language-switcher-options a.is-active { color: #4b1d16; }
 
 @media (max-width: 900px) {
   .simple-site-header .simple-mobile-menu { background: #4b1d16; }
   .simple-site-header .simple-mobile-links a { border-bottom-color: rgb(255 233 220 / 18%); color: #fff8f1; }
   .simple-site-header .simple-mobile-links a:hover, .simple-site-header .simple-mobile-links a:focus-visible { color: #ffe0b8; }
+  .simple-site-header > .header-inner > .language-switcher { display: none; }
+  .simple-mobile-links .mobile-language-switcher { display: inline-flex; width: max-content; margin-top: 18px; }
 }
 
 @media (max-width: 620px) {
